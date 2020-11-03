@@ -1,0 +1,27 @@
+{
+  "name": "mixing_time",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvinc90/Mixing-Time.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvinc90/Mixing-Time/issues"
+  },
+  "homepage": "https://github.com/alvinc90/Mixing-Time#readme",
+  "dependencies": {
+    "webpack": "^5.3.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.1.0"
+  }
+}

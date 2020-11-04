@@ -4,11 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/0reset.css">
-    <link rel="stylesheet" href="./css/mixing_time.css">
-    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="./css/head.css">
+    <link rel="stylesheet" href="./css/main.css">
+    
     <title>Mixing Time!</title>
 </head>
 <body>
-    <canvas id="game-canvas"></canvas>
+    <header>
+        <nav>
+            <ul class="nav-bar">
+                <li>GitHub</li>
+                <li>LinkedIn</li>
+                <li>Portfolio</li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 id="alvin" class="game-header">Mixing Time!</h1>
+
+    <main class="main-content">
+
+        <div class="game-container">
+
+            <div class="game-canvas">
+            </div>
+
+            <div class="game-bar">
+                <div class="game-tab">
+                    <div>
+                        <!-- <button class="tablinks" onclick="openBarMenu(event, 'Beer-&-Wine')">Beer & Wine</button> -->
+                        <button class="tablinks">Beer & Wine</button>
+                    </div>
+                    <div>
+                        <!-- <button class="tablinks" onclick="openBarMenu(event, 'Cocktail-Shaker')">Cocktail Shaker</button> -->
+                        <button class="tablinks">Cocktail Shaker</button>
+                    </div>
+                </div>
+
+
+                <div class="bar-menu-container">
+                    <div id="Beer-&-Wine" class="tabcontent">
+                        <div>
+                            <h3>Beer</h3>
+                            <ul>
+                                <li>Sierra Nevada Pale Ale</li>
+                                <li>Guinness Draught</li>
+                                <li>Pabst Blue Ribbon</li>
+                                <li>Blue Moon Belgian White</li> 
+                            </ul>
+                        </div>
+                            
+                        <div>
+                            <h3>Wine</h3>
+                            <ul>
+                                <li>Cabernet Sauvignon</li>
+                                <li>Pinot Noir</li>
+                                <li>Zinfandel</li>
+                                <li>Chardonnay</li>
+                                <li>Sauvignon Blanc</li>
+                                <li>Champagne</li>
+                                <li>Rosé</li>
+                            </ul>
+                        </div>
+
+                        <button class="cocktail-button">Pour & Serve</button>
+                    </div>
+                            
+                    
+                    <div id="Cocktail-Shaker" class="tabcontent">
+                        <div>
+                            <h3>Base</h3>
+                            <ul>
+                                <li>Vodka</li>
+                                <li>Tequila</li>
+                                <li>Bourbon</li>
+                                <li>Scotch</li>
+                                <li>Rum</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>Flavor-Base</h3>
+                            <ul>
+                                <li>Orange Liquor</li>
+                                <li>Melon Liquor</li>
+                                <li>Vermouth</li>
+                                <li>Peach Liquor</li>
+                                <li>Almond Liquor</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>Mixer</h3>
+                            <ul>
+                                <li>Coke</li>
+                                <li>Soda</li>
+                                <li>Tonic</li>
+                                <li>Cranberry</li>
+                                <li>Orange</li>
+                                <li>Sour Mix</li>
+                                <li>Ginger-Ale</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3>Garnish</h3>
+                            <ul>
+                                <li>Lime</li>
+                                <li>Olives</li>
+                                <li>Lemon-Twist</li>
+                                <li>Mint</li>
+                                <li>Cherry</li>
+                                <li>Pineapple</li>
+                            </ul>
+                        </div>
+
+                    <button class="cocktail-button">Shake & Serve</button>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="bundle.js"></script>
 </body>
 </html>

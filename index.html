@@ -23,27 +23,17 @@
     <h1 id="alvin" class="game-header">Mixing Time!</h1>
 
     <main class="main-content">
-
         <div class="game-container">
-
             <div class="game-canvas">
             </div>
-
             <div class="game-bar">
-                <div class="game-tab">
-                    <div>
-                        <!-- <button class="tablinks" onclick="openBarMenu(event, 'Beer-&-Wine')">Beer & Wine</button> -->
-                        <button class="tablinks">Beer & Wine</button>
-                    </div>
-                    <div>
-                        <!-- <button class="tablinks" onclick="openBarMenu(event, 'Cocktail-Shaker')">Cocktail Shaker</button> -->
-                        <button class="tablinks">Cocktail Shaker</button>
-                    </div>
+                <div class="game-tab-button-container">
+                    <button class="tabButton">Beer & Wine</button>
+                    <button class="tabButton">Cocktail Shaker</button>
                 </div>
 
-
-                <div class="bar-menu-container">
-                    <div id="Beer-&-Wine" class="tabcontent">
+                <div class="tabcontent-outer-container">
+                    <div class="tabcontent-inner-container">
                         <div>
                             <h3>Beer</h3>
                             <ul>
@@ -59,19 +49,26 @@
                             <ul>
                                 <li>Cabernet Sauvignon</li>
                                 <li>Pinot Noir</li>
-                                <li>Zinfandel</li>
                                 <li>Chardonnay</li>
                                 <li>Sauvignon Blanc</li>
                                 <li>Champagne</li>
                                 <li>Rosé</li>
                             </ul>
                         </div>
+                        
+                        <div>
+                            <button class="cocktail-button">Pour & Serve</button>
+                            <button class="cocktail-button">Remove Ingredient</button>
+                        </div>
 
-                        <button class="cocktail-button">Pour & Serve</button>
                     </div>
-                            
-                    
-                    <div id="Cocktail-Shaker" class="tabcontent">
+                </div>
+
+
+                        
+                
+                <div class="tabcontent-outer-container">
+                    <div class="tabcontent-inner-container">
                         <div>
                             <h3>Base</h3>
                             <ul>
@@ -82,7 +79,7 @@
                                 <li>Rum</li>
                             </ul>
                         </div>
-
+    
                         <div>
                             <h3>Flavor-Base</h3>
                             <ul>
@@ -93,7 +90,7 @@
                                 <li>Almond Liquor</li>
                             </ul>
                         </div>
-
+    
                         <div>
                             <h3>Mixer</h3>
                             <ul>
@@ -119,13 +116,17 @@
                             </ul>
                         </div>
 
-                    <button class="cocktail-button">Shake & Serve</button>
-                    </div>
-                </div>
+                        <div>
+                            <button class="cocktail-button">Shake & Serve</button>
+                            <button class="cocktail-button">Remove Ingredient</button>
+                        </div>
 
+                    </div>
+
+                </div>
             </div>
-            
         </div>
+            
 
     </main>
 

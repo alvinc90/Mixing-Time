@@ -1,10 +1,12 @@
-const sayHi = (name) => {
-    return (
-        // console.log('i am bar')
-        console.log(`Hi, My name is ${name}`)
-    )
+
+const showContent = (contentIdx) => {
+    const tabContents = document.getElementsByClassName("tabcontent-outer-container");
     
-};
+    for(let j = 0; j < tabContents.length; j++) {
+        tabContents[j].style.display = "none";
+    }
+    
+    return tabContents[contentIdx].style.display = "block";
+}
 
-export default sayHi; 
-
+export default showContent;

@@ -6,7 +6,7 @@
 
 .main-content {
     background-color: lightgray;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -75,6 +75,13 @@
     justify-content: space-evenly;
     margin-left: 300px;
     margin-top: -200px; 
+}
+
+.pour-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
 }
 
 .cocktail-button {

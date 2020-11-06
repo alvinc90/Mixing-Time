@@ -1,21 +1,22 @@
-import sayHi from './bar';
-
 console.log("Webpack is working!")
+import Game from './game';
+import BarMenu from './bar_menu';
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    let game = new Game();
+    let barMenu = new BarMenu();
+    barMenu.generateGarnish();
+    game.switching();
+})
+
+
+const sayHi = (name) => {
+    return (
+        // console.log('i am bar')
+        console.log(`Hi, My name is ${name}`)
+    )
+    
+};
 sayHi("Alvin");
-
-const showContent = (contentIdx) => {
-    const tabContents = document.getElementsByClassName("tabcontent-outer-container");
-    
-    for(let j = 0; j < tabContents.length; j++) {
-        tabContents[j].style.display = "none";
-    }
-    
-    return tabContents[contentIdx].style.display = "block";
-}
-
-const tabButtons = document.getElementsByClassName("tabButton");
-
-tabButtons[0].addEventListener("click", () => showContent(0))
-tabButtons[1].addEventListener("click", () => showContent(1))
-
-showContent(0); 

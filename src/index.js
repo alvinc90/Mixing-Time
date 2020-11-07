@@ -6,9 +6,9 @@ import BarMenu from './bar_menu';
 
 document.addEventListener("DOMContentLoaded", () => {
     let game = new Game();
-    let barMenu = new BarMenu();
-    barMenu.generateGarnish();
     game.switching();
+    let barMenu = new BarMenu();
+    barMenu.generateAllMenu();
 })
 
 

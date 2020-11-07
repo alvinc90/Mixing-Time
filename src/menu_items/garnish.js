@@ -3,50 +3,44 @@ class Garnish {
     generateGarnish() {
         const garnishArr = [
             {
-                name: "lime",
-                img: "../../images/garnish/lime.jpg"
+                name: "Lime",
+                img: "../../images/garnish/lime.jpg",
+                color: "limegreen"
             },
             {
-                name: "olive",
-                img: "../../images/garnish/olive.jpg"
+                name: "Olive",
+                img: "../../images/garnish/olive.jpg",
+                color: 'olive'
             },
             {
-                name: "mint",
-                img: "../../images/garnish/mint.jpg"
+                name: "Mint",
+                img: "../../images/garnish/mint.jpg",
+                color: "darkgreen"
             },
             {
-                name: "lemon twist",
-                img: "../../images/garnish/lemon_twist.jpg"
+                name: "Lemon twist",
+                img: "../../images/garnish/lemon_twist.jpg",
+                color: "yellow"
             },
             {
-                name: "cherry",
-                img: "../../images/garnish/cherry.jpeg"
+                name: "Cherry",
+                img: "../../images/garnish/cherry.jpeg",
+                color: "red"
             },
             {
-                name: "pineapple.jpg",
-                img: "../../images/garnish/pineapple.jpg"
+                name: "Pineapple",
+                img: "../../images/garnish/pineapple.jpg",
+                color: "yellow"
             }
 
         ]
 
-        for(let i = 0; i < garnishArr.length / 2; i++) {
-           const img = document.createElement("img")
-           const ul = document.getElementById("garnish")
-           img.setAttribute("src", `${garnishArr[i].img}`)
-           img.setAttribute("data-garnish-id1", i)
-           img.setAttribute("height", "50px")
-           img.setAttribute("width", "50px")
-           ul.appendChild(img);
-        }
-
-        for(let i = garnishArr.length / 2; i < garnishArr.length; i++) {
-           const img = document.createElement("img")
-           const ul = document.getElementById("garnish2")
-           img.setAttribute("src", `${garnishArr[i].img}`)
-           img.setAttribute("data-garnish-id2", i)
-           img.setAttribute("height", "50px")
-           img.setAttribute("width", "50px")
-           ul.appendChild(img);
+        for(let i = 0; i < garnishArr.length; i++) {
+            const li = document.createElement("li")
+            const ul = document.getElementById("garnish")
+            li.textContent = garnishArr[i].name
+            li.style.color = `${garnishArr[i].color}`
+            ul.appendChild(li);
         }
     }
 

@@ -3,27 +3,33 @@ class Mixer {
         const mixerArr = [
             {
                 name: "Coke", 
-                img: "../../images/mixer/coke.jpg"
+                img: "../../images/mixer/coke.jpg",
+                color: "red"
             },
             {
                 name: "Soda",
-                img: "../../images/mixer/soda.jpg"
+                img: "../../images/mixer/soda.jpg",
+                color: "white"
             },
             {
                 name: "Tonic",
-                img: "../../images/mixer/tonic.jpg"
+                img: "../../images/mixer/tonic.jpg",
+                color: "purple"
             },
             {
                 name: "Ginger Ale",
-                img: "../../images/mixer/ginger.jpeg"
+                img: "../../images/mixer/ginger.jpeg",
+                color: "green"
             },
             {
                 name: "Cranberry J",
-                img: "../../images/mixer/cranberry.jpg"
+                img: "../../images/mixer/cranberry.jpg",
+                color: "red"
             },
             {
                 name: "Orange J",
-                img: "../../images/mixer/orange.jpg"
+                img: "../../images/mixer/orange.jpg",
+                color: "orange"
             },
             {
                 name: "Sour Mix",
@@ -31,24 +37,12 @@ class Mixer {
             }
         ]
 
-        for(let i = 0; i < Math.floor(mixerArr.length / 2); i++) {
-            const img = document.createElement("img")
+        for(let i = 0; i < mixerArr.length; i++) {
+            const li = document.createElement("li")
             const ul = document.getElementById("mixer")
-            img.setAttribute('src', `${mixerArr[i].img}`)
-            img.setAttribute('data-mixer-id', i)
-            img.setAttribute("height", "70px")
-            img.setAttribute("width", "50px")
-            ul.appendChild(img)
-        }
-
-        for(let i = Math.floor(mixerArr.length / 2); i < mixerArr.length; i++) {
-            const img = document.createElement("img")
-            const ul = document.getElementById("mixer2")
-            img.setAttribute('src', `${mixerArr[i].img}`)
-            img.setAttribute('data-mixer-id', i)
-            img.setAttribute("height", "70px")
-            img.setAttribute("width", "50px")
-            ul.appendChild(img)
+            li.textContent = mixerArr[i].name
+            li.style.color = `${mixerArr[i].color}`
+            ul.appendChild(li)
         }
 
     }

@@ -4,44 +4,42 @@ class Beer {
         const beerArr = [
             {
                 name: "White Claw",
-                img: "../../images/beer/white_claw.jpeg"
+                img: "../../images/beer/white_claw.jpeg",
+                color: "white"
             },
             {
                 name: "Guinness",
-                img: "../../images/beer/guinness.jpg"
+                img: "../../images/beer/guinness.jpg",
+                color: "orange"
             },
             {
                 name: "Sierra Nevada",
-                img: "../../images/beer/SierraNevadaPaleAle.jpg"
+                img: "../../images/beer/SierraNevadaPaleAle.jpg",
+                color: "yellow"
             },
             {
                 name: "Pabst Blue Ribbon",
-                img: "../../images/beer/pbr.jpg"
+                img: "../../images/beer/pbr.jpg",
+                color: "red"
             },
             {
                 name: "Blue Moon",
-                img: "../../images/beer/blue_moon_logo.jpg"
+                img: "../../images/beer/blue_moon_logo.jpg",
+                color: "skyblue"
             },
             {
                 name: "Anchor Steam",
-                img: "../../images/beer/anchor_steam.jpg"
+                img: "../../images/beer/anchor_steam.jpg",
+                color: "rgb(160,82,45)"
             }
         ]
 
-         for(let i = 0; i < beerArr.length / 2; i++) {
-           const img = document.createElement("img")
-           const ul = document.getElementById("beer1")
-           img.setAttribute("src", `${beerArr[i].img}`)
-           img.setAttribute("data-beer-id1", i)
-           ul.appendChild(img);
-        }
-
-        for(let i = beerArr.length / 2; i < beerArr.length; i++) {
-           const img = document.createElement("img")
-           const ul = document.getElementById("beer2")
-           img.setAttribute("src", `${beerArr[i].img}`)
-           img.setAttribute("data-beer-id2", i)
-           ul.appendChild(img);
+         for(let i = 0; i < beerArr.length; i++) {
+            const ul = document.getElementById("beer")
+            const li = document.createElement("li")
+            li.textContent = beerArr[i].name
+            li.style.color = `${beerArr[i].color}`
+            ul.appendChild(li);
         }
     }
 }

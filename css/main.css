@@ -79,7 +79,7 @@
 
 .tabcontent-inner-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin-left: 300px;
     margin-top: -200px; 
 }
@@ -107,4 +107,31 @@
 
 #wine li {
     color: yellow;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.beer-container {
+    margin-top: -40px;
+}
+
+#beer-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    color: limegreen;
+    padding: 5px;
+    font-size: 25px;
+    border-bottom: 1px solid hotpink;
+    margin-bottom: 15px;
+}
+
+#beer li {
+    color: yellow;
+    font-size: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 5px;
+    transition: font-size 0.5s;
+}
+
+#beer li:hover {
+    font-size: 18px;
+    cursor: pointer;
+    filter: brightness(135%);
 }

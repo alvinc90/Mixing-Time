@@ -33,7 +33,24 @@ class Wine {
             li.textContent = wineArr[i].name
             li.style.color = `${wineArr[i].color}`
             ul.appendChild(li);
+            li.addEventListener("click", () => {
+                const glass = document.getElementById("beer-wine-glass")
+                const li = document.createElement("li")
+                li.textContent = wineArr[i].name
+                li.style.color = `${wineArr[i].color}`
+                glass.appendChild(li);
+            })
         }
+    }
+
+    removeTrayItem() {
+        const remove = document.getElementById("remove");
+            remove.addEventListener("click", () => {
+                const lists = document.querySelectorAll("#beer-wine-glass li");
+                const glass = document.getElementById("beer-wine-glass")
+                glass.removeChild(lists[lists.length - 1])
+
+            })
     }
 }
 

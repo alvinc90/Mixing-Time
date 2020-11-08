@@ -40,6 +40,13 @@ class Beer {
             li.textContent = beerArr[i].name
             li.style.color = `${beerArr[i].color}`
             ul.appendChild(li);
+            li.addEventListener("click", () => {
+                const glass = document.querySelector("#beer-wine-glass")
+                const li = document.createElement("li")
+                li.textContent = beerArr[i].name
+                li.style.color = `${beerArr[i].color}`
+                glass.appendChild(li);
+            })
         }
     }
 }

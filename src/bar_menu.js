@@ -17,6 +17,7 @@ class BarMenu {
         mixer.generateMixer();
         beer.generateBeer()
         wine.generateWine();
+        wine.removeTrayItem();
         base.generateBase();
         flavor.generateFlavor();
     }

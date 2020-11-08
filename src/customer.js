@@ -14,7 +14,7 @@ class Customer{
         const img = document.createElement("img")
         img.setAttribute("src", `${customers[randIdx].img}`)
         img.setAttribute("height", "350px");
-        img.setAttribute("width", "350px")
+        img.setAttribute("width", "310px")
         const div = document.querySelector(".left")
         div.appendChild(img)
     }

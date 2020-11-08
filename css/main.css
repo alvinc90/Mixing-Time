@@ -114,11 +114,11 @@
     color: yellow;
     font-family: 'Space Grotesk', sans-serif;
 }
-.beer-container, .wine-container, .mixer-container, .garnish-container, .base-container, .flavor-container {
+.beer-container, .wine-container, .mixer-container, .garnish-container, .base-container, .flavor-container, .glass-container {
     margin-top: -40px;
 }
 
-#beer-heading, #wine-heading, #mixer-heading, #garnish-heading, #base-heading, #flavor-heading{
+#beer-heading, #wine-heading, #mixer-heading, #garnish-heading, #base-heading, #flavor-heading, #tray-heading{
     font-family: 'Space Grotesk', sans-serif;
     color: limegreen;
     padding: 5px;

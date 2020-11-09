@@ -18,15 +18,16 @@
 
 .game-container {
     border: 1px solid black;
-    height: 640px; 
+    height: 680px; 
     width: 1200px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: rgb(34, 33, 33);
+    background-color: black;
 }
 
 .game-canvas {
+    display: flex;
     height: 350px;
     width: 1150px;
     margin-left: 23px;
@@ -59,7 +60,7 @@
     border-radius: 5px;
 }
 
-.tabButton {
+.tabButton, .cocktail-button {
     width: 100px;
     height: 50px;
     margin: 20px 0px;
@@ -73,7 +74,7 @@
     position: relative;
 }
 
-.tabButton:hover {
+.tabButton:hover, .cocktail-button:hover {
   filter: brightness(135%);
   top: -3px;
 }
@@ -96,20 +97,6 @@
     flex-direction: column;
 }
 
-.cocktail-button {
-    border: 1px dashed darkseagreen;
-    width: 100px;
-    height: 50px;
-    margin: 20px 0px;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-}
-
-.cocktail-button:hover {
-    background-color: firebrick;
-}
-
 #wine li {
     color: yellow;
     font-family: 'Space Grotesk', sans-serif;
@@ -118,7 +105,7 @@
     margin-top: -40px;
 }
 
-#beer-heading, #wine-heading, #mixer-heading, #garnish-heading, #base-heading, #flavor-heading, #tray-heading{
+#beer-heading, #wine-heading, #mixer-heading, #garnish-heading, #base-heading, #flavor-heading, #tray-heading, #shaker-heading{
     font-family: 'Space Grotesk', sans-serif;
     color: limegreen;
     padding: 5px;
@@ -139,4 +126,17 @@
     font-size: 20px;
     cursor: pointer;
     filter: brightness(135%);
+}
+
+.order {
+    font-size: 30px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: purple;
+    margin-top: 30px;
+    padding-top: 40px;
+    border: 1px solid white;
+    height: 80px;
+    border-radius: 300px;
+    background-color: white;
+    opacity: 0.9;
 }

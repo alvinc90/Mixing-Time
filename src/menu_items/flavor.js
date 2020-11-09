@@ -33,6 +33,13 @@ class Flavor {
             li.textContent = flavorArr[i].name
             li.style.color = `${flavorArr[i].color}`
             ul.appendChild(li);
+            li.addEventListener("click", () => {
+                const shaker = document.getElementById("shaker")
+                const li = document.createElement("li")
+                li.textContent = flavorArr[i].name
+                li.style.color = `${flavorArr[i].color}`
+                shaker.appendChild(li);
+            })
         }
     }
 }

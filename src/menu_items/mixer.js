@@ -43,6 +43,13 @@ class Mixer {
             li.textContent = mixerArr[i].name
             li.style.color = `${mixerArr[i].color}`
             ul.appendChild(li)
+            li.addEventListener("click", () => {
+                const shaker = document.getElementById("shaker")
+                const li = document.createElement("li")
+                li.textContent = mixerArr[i].name
+                li.style.color = `${mixerArr[i].color}`
+                shaker.appendChild(li);
+            })
         }
 
     }

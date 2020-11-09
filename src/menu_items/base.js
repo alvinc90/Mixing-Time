@@ -33,7 +33,24 @@ class Base {
             li.textContent = baseArr[i].name
             li.style.color = `${baseArr[i].color}`
             ul.appendChild(li);
+            li.addEventListener("click", () => {
+                const shaker = document.getElementById("shaker")
+                const li = document.createElement("li")
+                li.textContent = baseArr[i].name
+                li.style.color = `${baseArr[i].color}`
+                shaker.appendChild(li);
+            })
         }
+    }
+
+    removeTrayItem() {
+        const remove = document.getElementById("remove2");
+            remove.addEventListener("click", () => {
+                const lists = document.querySelectorAll("#shaker li");
+                const shaker = document.getElementById("shaker")
+                shaker.removeChild(lists[lists.length - 1])
+
+            })
     }
 }
 

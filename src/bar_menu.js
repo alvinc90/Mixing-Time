@@ -7,18 +7,19 @@ import Flavor from "./menu_items/flavor";
 
 class BarMenu {
     generateAllMenu() {
-        let garnish = new Garnish;
+        new Garnish;
         let mixer = new Mixer;
         let beer = new Beer;
         let wine = new Wine;
         let base = new Base;
         let flavor = new Flavor;
-        garnish.generateGarnish();
         mixer.generateMixer();
         beer.generateBeer()
         wine.generateWine();
+        // wine.addTrayItem();
         wine.removeTrayItem();
         base.generateBase();
+        base.removeTrayItem();
         flavor.generateFlavor();
     }
 

@@ -1,4 +1,8 @@
 class Garnish {
+
+    constructor() {
+        this.generateGarnish();
+    }
    
     generateGarnish() {
         const garnishArr = [
@@ -41,6 +45,13 @@ class Garnish {
             li.textContent = garnishArr[i].name
             li.style.color = `${garnishArr[i].color}`
             ul.appendChild(li);
+            li.addEventListener("click", () => {
+                const shaker = document.getElementById("shaker")
+                const li = document.createElement("li")
+                li.textContent = garnishArr[i].name
+                li.style.color = `${garnishArr[i].color}`
+                shaker.appendChild(li);
+            })
         }
     }
 

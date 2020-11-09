@@ -2,6 +2,7 @@ console.log("Webpack is working!")
 import Game from './game';
 import BarMenu from './bar_menu';
 import Customer from "./customer";
+import Order from "./order";
 
 
 
@@ -10,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     game.switching();
     let barMenu = new BarMenu();
     barMenu.generateAllMenu();
-    let customer = new Customer();
-    customer.generateCustomer();
+    new Customer();
+    new Order();
 })
 
 

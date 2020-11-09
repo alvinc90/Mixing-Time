@@ -42,6 +42,17 @@ class Wine {
             })
         }
     }
+    //NOT WORKING YET, NEED TO REWORK
+    // addTrayItem() {
+    //     const li = document.createElement("li")
+    //     li.addEventListener("click", () => {
+    //             const glass = document.getElementById("beer-wine-glass")
+    //             const li2 = document.createElement("li")
+    //             li2.textContent = wineArr[i].name
+    //             li2.style.color = `${wineArr[i].color}`
+    //             glass.appendChild(li2);
+    //         })
+    // }
 
     removeTrayItem() {
         const remove = document.getElementById("remove");

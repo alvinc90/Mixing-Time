@@ -1,4 +1,9 @@
 class Customer{
+
+    constructor() {
+        this.generateCustomer();
+    }
+
     generateCustomer() {
         const customers = [
             {

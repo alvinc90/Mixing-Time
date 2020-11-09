@@ -4,7 +4,6 @@ import Beer from "./menu_items/beer";
 import Wine from "./menu_items/wine";
 import Base from "./menu_items/base";
 import Flavor from "./menu_items/flavor";
-
 class BarMenu {
     generateAllMenu() {
         new Garnish;

@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     new Order();
     new Timer();
     // new sound("./audio/Allume-Cockney.mp3").play();
-
+    // const audio = document.querySelector("audio");
+    // audio.play();
 })
 
 

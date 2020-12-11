@@ -1,3 +1,4 @@
+console.log("i am a cunt")
 import showContent from './bar';
 
 class Game {

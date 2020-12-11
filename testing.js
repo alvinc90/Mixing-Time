@@ -1,5 +1,9 @@
-// const shit = document.getElementById("alvin");
-// shit.textContent = "shit Time"
 
-console.log("I am shit face");
+const shitFunction = () => {
+    const shit = document.getElementById("alvin");
+    const cunt =  shit.textContent = "shit Time"
+
+}
+
+
 

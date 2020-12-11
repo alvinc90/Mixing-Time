@@ -20,129 +20,33 @@
     border: 1px solid black;
     height: 680px; 
     width: 1200px;
-    display: flex;
-    flex-direction: column;
     border-radius: 5px;
-    background-color: black;
+    background-color: rgb(41, 39, 39);
+    margin-bottom: 40px;
+    display: flex;
+    /* font-family: 'Space Grotesk', sans-serif; */
 }
 
-.game-canvas {
-    display: flex;
-    height: 350px;
-    width: 1150px;
-    margin-left: 23px;
-    margin-top: 23px;
-    border-radius: 5px;
-    background-image: url('../images/club.jpg');
-    filter: brightness(90%);
-    opacity: 60%;
+.left-container {
+    border: 1px solid #301934;
+    width: 60%;
+    height: 95%;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    border-radius: 8px;
+    background-color: whitesmoke;
+}
+
+.right-container {
+    border: 1px solid darkgray;
+    width: 34%;
+    height: 95%;
+    margin-top: 1.5%;
+    margin-left: 2%;
+    border-radius: 8px;
+    background-color: #301934;
+    /* background-image: url('../images/club.jpg');
     object-fit: cover;
-}
-
-.game-bar {
-    height: 257px; 
-    width: 1150px;
-    margin-top: 23px;
-    margin-left: 23px;
-    margin-bottom: 23px;
-    border-radius: 5px;
-    background-color: rgb(7, 28, 47);
-}
-
-.game-tab-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    overflow: hidden;
-    width: 15%;
-    height: 100%;
-    border-radius: 5px;
-}
-
-.tabButton, .cocktail-button {
-    width: 100px;
-    height: 50px;
-    margin: 20px 0px;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    background-color: purple;
-    color: white;
-    font-family: 'Space Grotesk', sans-serif;
-    position: relative;
-}
-
-.tabButton:hover, .cocktail-button:hover {
-  filter: brightness(135%);
-  top: -3px;
-}
-
-.tabcontent-outer-container {
-  display: none;
-}
-
-.tabcontent-inner-container {
-    display: flex;
-    justify-content: space-around;
-    margin-left: 300px;
-    margin-top: -200px; 
-}
-
-.pour-button-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-}
-
-#wine li {
-    color: yellow;
-    font-family: 'Space Grotesk', sans-serif;
-}
-.beer-container, .wine-container, .mixer-container, .garnish-container, .base-container, .flavor-container, .glass-container {
-    margin-top: -40px;
-}
-
-#beer-heading, #wine-heading, #mixer-heading, #garnish-heading, #base-heading, #flavor-heading, #tray-heading, #shaker-heading{
-    font-family: 'Space Grotesk', sans-serif;
-    color: limegreen;
-    padding: 5px;
-    font-size: 25px;
-    border-bottom: 1px solid hotpink;
-    margin-bottom: 15px;
-}
-
-#beer li, #wine li, #mixer li, #garnish li, #base li, #flavor li {
-    color: yellow;
-    font-size: 16px;
-    font-family: 'Space Grotesk', sans-serif;
-    padding: 5px;
-    transition: font-size 0.5s;
-}
-
-#beer li:hover, #wine li:hover, #mixer li:hover, #garnish li:hover, #base li:hover, #flavor li:hover {
-    font-size: 20px;
-    cursor: pointer;
-    filter: brightness(135%);
-}
-
-.order {
-    font-size: 30px;
-    font-family: 'Space Grotesk', sans-serif;
-    color: purple;
-    margin-top: 30px;
-    padding-top: 40px;
-    border: 1px solid white;
-    height: 80px;
-    border-radius: 300px;
-    background-color: white;
-    opacity: 0.9;
-}
-
-#timer {
-    font-size: 70px;
-    color: purple;
-    /* margin-left: -360px; */
+    opacity: 30%;
+    filter: brightness(160%); */
 }

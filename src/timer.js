@@ -12,9 +12,9 @@ class Timer {
                 const timer = document.getElementById("timer")
                 timer.textContent = timeleft;
             }
+        console.log(timeleft)
         timeleft -= 1;
         }, 1000)
-        console.log(timeleft)
     }
 }
 

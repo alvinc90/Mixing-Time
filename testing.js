@@ -1,9 +1,4 @@
-
-const shitFunction = () => {
-    const shit = document.getElementById("alvin");
-    const cunt =  shit.textContent = "shit Time"
-
-}
+console.log('testing...1...2...3')
 
 
 

@@ -49,11 +49,14 @@
 }
 
 .left-inner-container {
-    border: 1px solid hotpink;
+    border: 1px solid darkgoldenrod;
     width: 70%;
     height: 95%;
     margin-top: 1.5%;
     margin-left: 2%;
+    background-color: rgb(133, 118, 153);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 #cocktail-ingredients {
@@ -83,6 +86,8 @@
     margin-top: 15px; 
     border-radius: 5px;
     text-align: center;
+    color: whitesmoke;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .x {

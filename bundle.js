@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/game.js":
-/*!*********************!*\
-  !*** ./src/game.js ***!
-  \*********************/
+/***/ "./src/cocktail.js":
+/*!*************************!*\
+  !*** ./src/cocktail.js ***!
+  \*************************/
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -16,11 +16,97 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+class Cocktail {
+    constructor() {
+        this.ingredients = [
+           {
+               name: "tequila",
+               img: "some path"
+           },
+           {
+               name: "vodka",
+               img: "some path"
+           },
+           {
+               name: "rum",
+               img: "some path"
+           },
+           {
+               name: "whiskey",
+               img: "some path"
+           },
+           {
+               name: "lime",
+               img: "some path"
+           },
+           {
+               name: "salt",
+               img: "some path"
+           },
+           {
+               name: "olive",
+               img: "some path"
+           },
+           {
+               name: "ice",
+               img: "some path"
+           },
+           {
+               name: "mint",
+               img: "some path"
+           },
+           {
+               name: "cherry",
+               img: "some path"
+           },
+           {
+               name: "orange",
+               img: "some path"
+           },
+           {
+               name: "lemon",
+               img: "some path"
+           },
+
+        ];
+    }
+
+    generateIngredients() {
+        this.ingredients.forEach((ingredient) => {
+            const ul = document.getElementById("cocktail-ingredients");
+            const li = document.createElement("li");
+            li.textContent = ingredient.name;
+            li.classList.add("ingredient-box");
+            ul.appendChild(li);
+        })
+    };
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Cocktail);
+
+/***/ }),
+
+/***/ "./src/game.js":
+/*!*********************!*\
+  !*** ./src/game.js ***!
+  \*********************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _cocktail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cocktail */ "./src/cocktail.js");
 
 class Game {
-
-    
-
+    constructor() {
+        let c = new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default();
+        c.generateIngredients();
+    }
 
 }
 
@@ -41,13 +127,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game */ "./src/game.js");
 console.log("Webpack is working!")
 
-// import Timer from "./timer";
-// import sound from "./sound";
-
 
 document.addEventListener("DOMContentLoaded", () => {
     let game = new _game__WEBPACK_IMPORTED_MODULE_0__.default();
-   
     // new sound("./audio/Allume-Cockney.mp3").play();
     // const audio = document.querySelector("audio");
     // audio.play();

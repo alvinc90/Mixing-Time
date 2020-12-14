@@ -51,17 +51,32 @@ class Cocktail {
            },
 
         ];
+        this.shakerArr = [];
     }
 
     generateIngredients() {
-        this.ingredients.forEach((ingredient) => {
+        this.ingredients.forEach((ingredient, i) => {
             const ul = document.getElementById("cocktail-ingredients");
             const li = document.createElement("li");
             li.textContent = ingredient.name;
             li.classList.add("ingredient-box");
+            li.setAttribute("data-id", i)
+            li.addEventListener("click", () => {
+                const lists = document.getElementById("shaker-lists");
+                const list = document.createElement("li");
+                list.textContent = ingredient.name;
+                lists.appendChild(list);
+            });
             ul.appendChild(li);
         })
     };
+
+    removeShakerList() {
+        const lists = document.getElementById("shaker-lists");
+        lists.forEach((list) => {
+            
+        })
+    }
 }
 
 export default Cocktail;

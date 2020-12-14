@@ -69,17 +69,32 @@ class Cocktail {
            },
 
         ];
+        this.shakerArr = [];
     }
 
     generateIngredients() {
-        this.ingredients.forEach((ingredient) => {
+        this.ingredients.forEach((ingredient, i) => {
             const ul = document.getElementById("cocktail-ingredients");
             const li = document.createElement("li");
             li.textContent = ingredient.name;
             li.classList.add("ingredient-box");
+            li.setAttribute("data-id", i)
+            li.addEventListener("click", () => {
+                const lists = document.getElementById("shaker-lists");
+                const list = document.createElement("li");
+                list.textContent = ingredient.name;
+                lists.appendChild(list);
+            });
             ul.appendChild(li);
         })
     };
+
+    removeShakerList() {
+        const lists = document.getElementById("shaker-lists");
+        lists.forEach((list) => {
+            
+        })
+    }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Cocktail);
@@ -129,7 +144,7 @@ console.log("Webpack is working!")
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    let game = new _game__WEBPACK_IMPORTED_MODULE_0__.default();
+    new _game__WEBPACK_IMPORTED_MODULE_0__.default();
     // new sound("./audio/Allume-Cockney.mp3").play();
     // const audio = document.querySelector("audio");
     // audio.play();

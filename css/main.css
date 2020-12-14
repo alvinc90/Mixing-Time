@@ -72,6 +72,19 @@
     /* align-items: center; */
 }
 
+#shaker-lists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.remove-1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .cocktail-shaker-container {
     border: 1px solid green;
     height: 95%;
@@ -87,6 +100,17 @@
     border-radius: 5px;
     text-align: center;
     color: whitesmoke;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.ingredient-box-2{
+    border: 1px solid blue;
+    width: 130px;
+    height: 130px;
+    margin-top: 15px; 
+    border-radius: 5px;
+    text-align: center;
+    color: black;
     font-family: 'Space Grotesk', sans-serif;
 }
 

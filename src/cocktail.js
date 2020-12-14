@@ -51,7 +51,12 @@ class Cocktail {
            },
 
         ];
-        this.shakerArr = [];
+        this.emptyArr = ["none", "none", "none"];
+        this.dataIdArr = [];
+        this.generateIngredients();
+        this.generateEmptylists();
+        this.clearShakerList();
+        this.removeShakerList();
     }
 
     generateIngredients() {
@@ -60,23 +65,54 @@ class Cocktail {
             const li = document.createElement("li");
             li.textContent = ingredient.name;
             li.classList.add("ingredient-box");
-            li.setAttribute("data-id", i)
+            li.setAttribute("id", i);
             li.addEventListener("click", () => {
-                const lists = document.getElementById("shaker-lists");
-                const list = document.createElement("li");
-                list.textContent = ingredient.name;
-                lists.appendChild(list);
+                const shaker = document.querySelectorAll("#shaker-lists > li");
+                this.dataIdArr.push(li.id)
+                let dataIdArr = this.dataIdArr;
+                let length = this.dataIdArr.length
+                const lastId = dataIdArr[length - 1];
+                shaker.forEach((shakerList) => {
+                    if (shakerList.textContent === "none") {
+                        const newName = this.ingredients[lastId].name
+                        shakerList.textContent = newName;
+                        throw new Error("This is not an error, I did it to stop code execution =)")
+                    } 
+                })
             });
             ul.appendChild(li);
         })
     };
 
-    removeShakerList() {
-        const lists = document.getElementById("shaker-lists");
-        lists.forEach((list) => {
-            
+    generateEmptylists() {
+        this.emptyArr.forEach((emp) => {
+            const ul = document.getElementById("shaker-lists");
+            const li = document.createElement("li");
+            li.classList.add("ingredient-box-2")
+            li.textContent = emp
+            ul.appendChild(li);
         })
     }
+
+    clearShakerList() {
+        const remove = document.getElementById("remove");
+        remove.addEventListener("click", () => {
+            const lists = document.querySelectorAll("#shaker-lists > li");
+            lists.forEach((list) => {
+                list.textContent = "none"
+            })
+        })
+    }
+
+    removeShakerList() {
+       const lists = document.querySelectorAll("#shaker-lists > li");
+       lists.forEach((list) => {
+           list.addEventListener("click", () => {
+               list.textContent = "none"
+           })
+       })
+    }
+    
 }
 
 export default Cocktail;

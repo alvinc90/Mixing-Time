@@ -137,6 +137,52 @@ class Cocktail {
 
 /***/ }),
 
+/***/ "./src/customer.js":
+/*!*************************!*\
+  !*** ./src/customer.js ***!
+  \*************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+class Customer {
+    constructor() {
+
+        this.customerArr = [
+            {
+                name: "man",
+                url: "../images/customer/boy.png"
+            },
+            {
+                name: "woman",
+                url: "../images/customer/girl.png"
+            }
+        ]
+
+        this.generateCustomer();
+    }
+
+    generateCustomer() {
+        let randIdx = Math.floor(Math.random() * this.customerArr.length)
+        const h1 = document.getElementById("customer");
+        const img = document.createElement("img");
+        img.setAttribute("src", this.customerArr[randIdx].url);
+        img.classList.add("customer")
+        h1.appendChild(img);
+    }
+
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Customer);
+
+/***/ }),
+
 /***/ "./src/game.js":
 /*!*********************!*\
   !*** ./src/game.js ***!
@@ -152,10 +198,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony import */ var _cocktail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cocktail */ "./src/cocktail.js");
+/* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
+/* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./order */ "./src/order.js");
+/* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./timer */ "./src/timer.js");
+
+
+
 
 class Game {
     constructor() {
         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default();
+        new _customer__WEBPACK_IMPORTED_MODULE_1__.default();
+        new _order__WEBPACK_IMPORTED_MODULE_2__.default();
+        new _timer__WEBPACK_IMPORTED_MODULE_3__.default();
     }
 
 }
@@ -195,6 +250,98 @@ const sayHi = (name) => {
 };
 sayHi("R2D2");
 
+
+/***/ }),
+
+/***/ "./src/order.js":
+/*!**********************!*\
+  !*** ./src/order.js ***!
+  \**********************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+class Order {
+    constructor() {
+
+        this.orderArr = [
+            {
+                cocktail: "margarita",
+                recipe: ["tequila", "lime", "salt"]
+            },
+            {
+                cocktail: "martini",
+                recipe: ["vodka", "olive", "ice"]
+            },
+            {
+                cocktail: "mojito",
+                recipe: ["rum", "mint", "lime"]
+            },
+            {
+                cocktail: "old fashion",
+                recipe: ["whiskey", "cherry", "orange"]
+            }
+        ]
+
+        this.generateOrder();
+    }
+
+    generateOrder() {
+        let randomIdx = Math.floor( Math.random() * this.orderArr.length );
+        let randomOrder = this.orderArr[randomIdx].cocktail
+        let randomRecipe = this.orderArr[randomIdx].recipe
+        const order = document.getElementById("order");
+        const h2 = document.createElement("h2");
+        h2.classList.add("order")
+        h2.textContent = `...${randomOrder}`;
+        order.appendChild(h2)
+    }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
+
+/***/ }),
+
+/***/ "./src/timer.js":
+/*!**********************!*\
+  !*** ./src/timer.js ***!
+  \**********************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+class Timer {
+    constructor() {
+        this.generateTimer();
+    }
+    
+    generateTimer() {
+        let timeleft = 10;
+        const downloadTimer = setInterval(() => {
+            if (timeleft <= 0) {
+                clearInterval(downloadTimer); 
+            } else {
+                const timer = document.getElementById("timer")
+                timer.textContent = timeleft;
+            }
+        timeleft -= 1;
+        }, 1000)
+    }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Timer);
 
 /***/ })
 

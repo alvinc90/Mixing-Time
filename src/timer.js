@@ -4,7 +4,7 @@ class Timer {
     }
     
     generateTimer() {
-        let timeleft = 5;
+        let timeleft = 10;
         const downloadTimer = setInterval(() => {
             if (timeleft <= 0) {
                 clearInterval(downloadTimer); 
@@ -12,7 +12,6 @@ class Timer {
                 const timer = document.getElementById("timer")
                 timer.textContent = timeleft;
             }
-        console.log(timeleft)
         timeleft -= 1;
         }, 1000)
     }

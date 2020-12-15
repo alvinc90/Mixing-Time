@@ -11,8 +11,6 @@ class Customer {
                 url: "../images/customer/girl.png"
             }
         ]
-
-        this.generateCustomer();
     }
 
     generateCustomer() {
@@ -22,6 +20,12 @@ class Customer {
         img.setAttribute("src", this.customerArr[randIdx].url);
         img.classList.add("customer")
         h1.appendChild(img);
+    }
+
+    removeCustomer() {
+        const h1 = document.getElementById("customer");
+        const img = document.querySelector("#customer > img");
+        h1.removeChild(img);
     }
 
 };

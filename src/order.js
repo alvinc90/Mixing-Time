@@ -19,8 +19,6 @@ class Order {
                 recipe: ["whiskey", "cherry", "orange"]
             }
         ]
-
-        this.generateOrder();
     }
 
     generateOrder() {
@@ -32,6 +30,12 @@ class Order {
         h2.classList.add("order")
         h2.textContent = `...${randomOrder}`;
         order.appendChild(h2)
+    }
+
+    removeOrder() {
+        const h2 = document.querySelector("#order > h2");
+        const h1 = document.getElementById("order");
+        h1.removeChild(h2);
     }
 };
 

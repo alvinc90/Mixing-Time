@@ -1,23 +1,29 @@
 class Timer {
     constructor() {
-        this.generateTimer();
+        this.timer = null;
     }
     
     generateTimer() {
-        let timeleft = 10;
-        const downloadTimer = setInterval(() => {
-            if (timeleft <= 0) {
-                clearInterval(downloadTimer); 
-            } else {
-                const timer = document.getElementById("timer")
-                timer.textContent = timeleft;
-            }
+        if (this.timer) clearInterval(this.timer);
+        this.timer = setInterval(this.countdown, 1000);
+    }
+    
+    countdown() {
+        let timeleft = 7;
+        const timer = document.getElementById("timer");
+
+        // debugger
+        if (timeleft === 0) {
+            timer.textContent = "0"
+        } else {
+            timer.textContent = timeleft;
+            console.log(timer.textContent);
+        }
         timeleft -= 1;
-        }, 1000)
     }
 
     stopTimer() {
-        clearInterval(downloadTimer)
+        clearInterval(this.timer);
     }
 }
 

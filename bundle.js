@@ -164,8 +164,6 @@ class Customer {
                 url: "../images/customer/girl.png"
             }
         ]
-
-        this.generateCustomer();
     }
 
     generateCustomer() {
@@ -175,6 +173,12 @@ class Customer {
         img.setAttribute("src", this.customerArr[randIdx].url);
         img.classList.add("customer")
         h1.appendChild(img);
+    }
+
+    removeCustomer() {
+        const h1 = document.getElementById("customer");
+        const img = document.querySelector("#customer > img");
+        h1.removeChild(img);
     }
 
 };
@@ -207,15 +211,33 @@ __webpack_require__.r(__webpack_exports__);
 
 class Game {
     constructor() {
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default();
-        new _customer__WEBPACK_IMPORTED_MODULE_1__.default();
-        new _order__WEBPACK_IMPORTED_MODULE_2__.default();
-        new _timer__WEBPACK_IMPORTED_MODULE_3__.default();
+        this.start();
+        this.nextOrder();
     }
 
-    reset() {
-        
+    start() {
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default();
+        new _order__WEBPACK_IMPORTED_MODULE_2__.default().generateOrder();
+        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().generateCustomer();
+        new _timer__WEBPACK_IMPORTED_MODULE_3__.default().generateTimer();
     }
+
+    nextOrder() {
+        // let timeStart = new Date().getTime();
+        // let diff = 7000 * 10;
+        // let timeNext = (timeStart + diff);
+
+        // setTimeout(() => {
+        //     new Customer().removeCustomer();
+        //     new Timer().stopTimer();
+        //     new Order().removeOrder();
+        //     new Customer().generateCustomer();
+        //     new Timer().generateTimer();
+        //     new Order().generateOrder();
+        // }, 8000);
+    }
+
+
 
 }
 
@@ -299,8 +321,6 @@ class Order {
                 recipe: ["whiskey", "cherry", "orange"]
             }
         ]
-
-        this.generateOrder();
     }
 
     generateOrder() {
@@ -312,6 +332,12 @@ class Order {
         h2.classList.add("order")
         h2.textContent = `...${randomOrder}`;
         order.appendChild(h2)
+    }
+
+    removeOrder() {
+        const h2 = document.querySelector("#order > h2");
+        const h1 = document.getElementById("order");
+        h1.removeChild(h2);
     }
 };
 
@@ -335,24 +361,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 class Timer {
     constructor() {
-        this.generateTimer();
+        this.timer = null;
     }
     
     generateTimer() {
-        let timeleft = 10;
-        const downloadTimer = setInterval(() => {
-            if (timeleft <= 0) {
-                clearInterval(downloadTimer); 
-            } else {
-                const timer = document.getElementById("timer")
-                timer.textContent = timeleft;
-            }
+        if (this.timer) clearInterval(this.timer);
+        this.timer = setInterval(this.countdown, 1000);
+    }
+    
+    countdown() {
+        let timeleft = 7;
+        const timer = document.getElementById("timer");
+
+        // debugger
+        if (timeleft === 0) {
+            timer.textContent = "0"
+        } else {
+            timer.textContent = timeleft;
+            console.log(timer.textContent);
+        }
         timeleft -= 1;
-        }, 1000)
     }
 
     stopTimer() {
-        clearInterval(downloadTimer)
+        clearInterval(this.timer);
     }
 }
 

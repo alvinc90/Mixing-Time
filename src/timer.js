@@ -15,6 +15,10 @@ class Timer {
         timeleft -= 1;
         }, 1000)
     }
+
+    stopTimer() {
+        clearInterval(downloadTimer)
+    }
 }
 
 export default Timer;

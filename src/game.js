@@ -10,6 +10,10 @@ class Game {
         new Timer();
     }
 
+    reset() {
+        
+    }
+
 }
 
 export default Game;

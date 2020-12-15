@@ -213,6 +213,10 @@ class Game {
         new _timer__WEBPACK_IMPORTED_MODULE_3__.default();
     }
 
+    reset() {
+        
+    }
+
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Game);
@@ -234,16 +238,23 @@ console.log("Webpack is working!")
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    new _game__WEBPACK_IMPORTED_MODULE_0__.default();
+    const modal = document.getElementById("mymodal");
+    const start = document.getElementById("button");
+
+    start.addEventListener("click", () => {
+        modal.style.display = "none";
+        new _game__WEBPACK_IMPORTED_MODULE_0__.default();
+        
+    })
+    
+    // new Game();
     // new sound("./audio/Allume-Cockney.mp3").play();
     // const audio = document.querySelector("audio");
     // audio.play();
 })
 
-
 const sayHi = (name) => {
     return (
-        // console.log('i am bar')
         console.log(`Hi, My name is ${name}`)
     )
     
@@ -338,6 +349,10 @@ class Timer {
             }
         timeleft -= 1;
         }, 1000)
+    }
+
+    stopTimer() {
+        clearInterval(downloadTimer)
     }
 }
 

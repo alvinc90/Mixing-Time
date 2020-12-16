@@ -37,7 +37,7 @@ class Cocktail {
            },
            {
                name: "lime",
-               img: "some path"
+               img: "../images/lime.png"
            },
            {
                name: "salt",
@@ -81,6 +81,8 @@ class Cocktail {
         this.ingredients.forEach((ingredient, i) => {
             const ul = document.getElementById("cocktail-ingredients");
             const li = document.createElement("li");
+            const img = document.createElement("img")
+            
             li.textContent = ingredient.name;
             li.classList.add("ingredient-box");
             li.setAttribute("id", i);

@@ -21,51 +21,51 @@ class Cocktail {
         this.ingredients = [
            {
                name: "tequila",
-               img: "some path"
+               img: "../images/bar-ingredients/tequila.png"
            },
            {
                name: "vodka",
-               img: "some path"
+               img: "../images/bar-ingredients/vodka.png"
            },
            {
                name: "rum",
-               img: "some path"
+               img: "../images/bar-ingredients/rum.png"
            },
            {
                name: "whiskey",
-               img: "some path"
+               img: "../images/bar-ingredients/whiskey.png"
            },
            {
                name: "lime",
-               img: "../images/bar-ingredients/lime.png"
+               img: "../images/bar-ingredients/lime3.png"
            },
            {
                name: "salt",
-               img: "some path"
+               img: "../images/bar-ingredients/salt.png"
            },
            {
                name: "olive",
-               img: "some path"
+               img: "../images/bar-ingredients/olive.png"
            },
            {
                name: "ice",
-               img: "some path"
+               img: "../images/bar-ingredients/ice2.png"
            },
            {
                name: "mint",
-               img: "some path"
+               img: "../images/bar-ingredients/mint.png"
            },
            {
                name: "cherry",
-               img: "some path"
+               img: "../images/bar-ingredients/cherry2.png"
            },
            {
                name: "orange",
-               img: "some path"
+               img: "../images/bar-ingredients/orange.png"
            },
            {
                name: "lemon",
-               img: "some path"
+               img: "../images/bar-ingredients/lemon.png"
            },
 
         ];
@@ -83,7 +83,7 @@ class Cocktail {
             const li = document.createElement("li");
             const img = document.createElement("img")
             img.setAttribute("src", `${ingredient.img}`)
-            img.classList.add("ingredient-box-image")
+            img.classList.add("ingredient-box-image3")
 
             li.textContent = ingredient.name;
             li.classList.add("ingredient-box");
@@ -277,9 +277,12 @@ console.log("Webpack is working!")
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("mymodal");
     const start = document.getElementById("button");
+    const banana = document.getElementsByClassName("left-inner-container")[0];
+    banana.style.display = "none";
 
     start.addEventListener("click", () => {
         modal.style.display = "none";
+        banana.style.display = "block";
         new _game__WEBPACK_IMPORTED_MODULE_0__.default();
         
     })

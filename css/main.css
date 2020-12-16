@@ -24,7 +24,6 @@
     background-color: rgb(41, 39, 39);
     margin-bottom: 40px;
     display: flex;
-    /* font-family: 'Space Grotesk', sans-serif; */
 }
 
 .left-container {
@@ -57,6 +56,8 @@
     background-color: rgb(133, 118, 153);
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+    position: relative;
+    z-index: 2
 }
 
 #cocktail-ingredients {
@@ -77,45 +78,50 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    position: relative;
+    top: 68px;
 }
 
 .remove-1 {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 150px;
 }
 
 .cocktail-shaker-container {
-    border: 1px solid green;
     height: 95%;
     margin-top: 1.5%;
-    width: 25%;
+    width: 255px;
+    /* background-image: url("../images/bar-ingredients/shaker.png"); */
 }
 
 .ingredient-box {
-    /* border: 1px solid blue; */
-    width: 130px;
-    height: 130px;
-    margin-top: 15px; 
-    border-radius: 5px;
-    text-align: center;
-    color: whitesmoke;
+    color: rgb(133, 118, 153);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 10px;
+    font-size: 1px;
 }
 
 .ingredient-box-image {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
     border-radius: 4px;
     margin-top: 15px; 
     object-fit: cover;
+    opacity: 80%;
 }
 
 .ingredient-box-2{
     color: white;
     font-size: 1px;
     font-family: 'Space Grotesk', sans-serif;
+}
+
+.ingredient-box-image3 {
+    width: 130px;
+    height: 130px;
+    border-radius: 4px;
+    margin-top: 15px; 
+    object-fit: cover;
 }
 
 .x {
@@ -155,7 +161,6 @@
 .outer-modal {
     display: block;
     position: fixed;
-    /* position: absolute; */
     z-index: 1; 
     padding-top: 100px;
     left: 0;
@@ -163,7 +168,7 @@
     width: 100%; 
     height: 100%; 
     overflow: auto;
-    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.85);
 }
 
@@ -212,4 +217,20 @@
 
 #button:focus {
     outline: none;
+}
+
+#cocktail-ingredients img:hover,
+#shaker-lists img:hover,
+#clear:hover  {
+    cursor: pointer;
+}
+
+.ingredient-box-image3:hover {
+    cursor: pointer;
+}
+
+.shaker-back {
+    position: absolute;
+    right: 32.5%;
+    top: 34%;
 }

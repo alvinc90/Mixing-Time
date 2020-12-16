@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         banana.style.display = "block";
         new Game();
-        
     })
     
     // new Game();

@@ -284,7 +284,6 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         banana.style.display = "block";
         new _game__WEBPACK_IMPORTED_MODULE_0__.default();
-        
     })
     
     // new Game();

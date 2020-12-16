@@ -37,7 +37,7 @@ class Cocktail {
            },
            {
                name: "lime",
-               img: "../images/lime.png"
+               img: "../images/bar-ingredients/lime.png"
            },
            {
                name: "salt",
@@ -82,25 +82,31 @@ class Cocktail {
             const ul = document.getElementById("cocktail-ingredients");
             const li = document.createElement("li");
             const img = document.createElement("img")
-            
+            img.setAttribute("src", `${ingredient.img}`)
+            img.classList.add("ingredient-box-image")
+
             li.textContent = ingredient.name;
             li.classList.add("ingredient-box");
             li.setAttribute("id", i);
-            li.addEventListener("click", () => {
-                const shaker = document.querySelectorAll("#shaker-lists > li");
-                this.dataIdArr.push(li.id)
+            img.setAttribute("id", i);
+            img.addEventListener("click", () => {
+                const shaker = document.querySelectorAll("#shaker-lists img");
+                this.dataIdArr.push(img.id)
                 let dataIdArr = this.dataIdArr;
                 let length = this.dataIdArr.length
                 const lastId = dataIdArr[length - 1];
-                shaker.forEach((shakerList) => {
-                    if (shakerList.textContent === "none") {
+                shaker.forEach((shakerImg) => {
+                    if (shakerImg.textContent === "none") {
                         const newName = this.ingredients[lastId].name
-                        shakerList.textContent = newName;
+                        const newImg = this.ingredients[lastId].img
+                        shakerImg.setAttribute("src", newImg);
+                        shakerImg.textContent = newName;
                         throw new Error("This is not an error, I did it to stop code execution =)")
                     } 
                 })
             });
             ul.appendChild(li);
+            li.appendChild(img);
         })
     };
 
@@ -108,27 +114,34 @@ class Cocktail {
         this.emptyArr.forEach((emp) => {
             const ul = document.getElementById("shaker-lists");
             const li = document.createElement("li");
-            li.classList.add("ingredient-box-2")
+            const img = document.createElement("img");
+            img.setAttribute("src", "../images/bar-ingredients/blank.jpg")
+            img.textContent = "none";
+            img.classList.add("ingredient-box-image")
             li.textContent = emp
+            li.classList.add("ingredient-box-2")
             ul.appendChild(li);
+            li.appendChild(img);
         })
     }
 
     clearShakerList() {
-        const remove = document.getElementById("remove");
-        remove.addEventListener("click", () => {
-            const lists = document.querySelectorAll("#shaker-lists > li");
-            lists.forEach((list) => {
-                list.textContent = "none"
+        const clear = document.getElementById("clear");
+        clear.addEventListener("click", () => {
+            const imgs = document.querySelectorAll("#shaker-lists img");
+            imgs.forEach((img) => {
+                img.textContent = "none"
+                img.setAttribute("src", "../images/bar-ingredients/blank.jpg")
             })
         })
     }
 
     removeShakerList() {
-       const lists = document.querySelectorAll("#shaker-lists > li");
-       lists.forEach((list) => {
-           list.addEventListener("click", () => {
-               list.textContent = "none"
+       const imgs = document.querySelectorAll("#shaker-lists img");
+       imgs.forEach((img) => {
+           img.addEventListener("click", () => {
+               img.textContent = "none";
+               img.setAttribute("src", "../images/bar-ingredients/blank.jpg")
            })
        })
     }

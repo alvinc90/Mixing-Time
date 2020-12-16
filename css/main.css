@@ -93,7 +93,7 @@
 }
 
 .ingredient-box {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 130px;
     height: 130px;
     margin-top: 15px; 
@@ -101,16 +101,20 @@
     text-align: center;
     color: whitesmoke;
     font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+}
+
+.ingredient-box-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 4px;
+    margin-top: 15px; 
+    object-fit: cover;
 }
 
 .ingredient-box-2{
-    border: 1px solid blue;
-    width: 130px;
-    height: 130px;
-    margin-top: 15px; 
-    border-radius: 5px;
-    text-align: center;
-    color: black;
+    color: white;
+    font-size: 1px;
     font-family: 'Space Grotesk', sans-serif;
 }
 

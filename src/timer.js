@@ -1,29 +1,30 @@
 class Timer {
     constructor() {
-        this.timer = null;
+        this.time = null;
+        this.countdown = this.countdown.bind(this);
     }
     
     generateTimer() {
-        if (this.timer) clearInterval(this.timer);
-        this.timer = setInterval(this.countdown, 1000);
+        this.time = setInterval(this.countdown, 1000);
     }
     
     countdown() {
-        let timeleft = 7;
         const timer = document.getElementById("timer");
-
-        // debugger
-        if (timeleft === 0) {
+        let timeleft = timer.textContent;
+        timeleft -= 1;
+        if (timeleft <= 0) {
             timer.textContent = "0"
-        } else {
+            this.stopTimer();
+            console.log("stephanie pussy always hella tight")
+        } 
+        else {
             timer.textContent = timeleft;
             console.log(timer.textContent);
         }
-        timeleft -= 1;
     }
 
     stopTimer() {
-        clearInterval(this.timer);
+        clearInterval(this.time);
     }
 }
 

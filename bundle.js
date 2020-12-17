@@ -21,7 +21,7 @@ class Cocktail {
         this.ingredients = [
            {
                name: "tequila",
-               img: "../images/bar-ingredients/tequila.PNG"
+               img: "../images/bar-ingredients/tequila.png"
            },
            {
                name: "vodka",
@@ -82,7 +82,7 @@ class Cocktail {
             const ul = document.getElementById("cocktail-ingredients");
             const li = document.createElement("li");
             const img = document.createElement("img")
-            img.setAttribute("src", `${ingredient.img}`)
+            img.setAttribute("src", ingredient.img)
             img.classList.add("ingredient-box-image3")
 
             li.textContent = ingredient.name;

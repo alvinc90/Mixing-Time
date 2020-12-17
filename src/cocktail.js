@@ -7,47 +7,47 @@ class Cocktail {
            },
            {
                name: "vodka",
-               img: "../images/bar_ingredients/vodka.png"
+               img: "images/bar_ingredients/vodka.png"
            },
            {
                name: "rum",
-               img: "../images/bar_ingredients/rum.png"
+               img: "images/bar_ingredients/rum.png"
            },
            {
                name: "whiskey",
-               img: "../images/bar_ingredients/whiskey.png"
+               img: "images/bar_ingredients/whiskey.png"
            },
            {
                name: "lime",
-               img: "../images/bar_ingredients/lime3.png"
+               img: "images/bar_ingredients/lime3.png"
            },
            {
                name: "salt",
-               img: "../images/bar_ingredients/salt.png"
+               img: "images/bar_ingredients/salt.png"
            },
            {
                name: "olive",
-               img: "../images/bar_ingredients/olive.png"
+               img: "images/bar_ingredients/olive.png"
            },
            {
                name: "ice",
-               img: "../images/bar_ingredients/ice2.png"
+               img: "images/bar_ingredients/ice2.png"
            },
            {
                name: "mint",
-               img: "../images/bar_ingredients/mint.png"
+               img: "images/bar_ingredients/mint.png"
            },
            {
                name: "cherry",
-               img: "../images/bar_ingredients/cherry2.png"
+               img: "images/bar_ingredients/cherry2.png"
            },
            {
                name: "orange",
-               img: "../images/bar_ingredients/orange.png"
+               img: "images/bar_ingredients/orange.png"
            },
            {
                name: "lemon",
-               img: "../images/bar_ingredients/lemon.png"
+               img: "images/bar_ingredients/lemon.png"
            },
 
         ];

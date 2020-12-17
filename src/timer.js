@@ -13,11 +13,9 @@ class Timer {
         let timeleft = timer.textContent;
         timeleft -= 1;
         if (timeleft <= 0) {
-            timer.textContent = "0"
+            timer.textContent = "game over"
             this.stopTimer();
-            console.log("stephanie pussy always hella tight")
-        } 
-        else {
+        } else {
             timer.textContent = timeleft;
             console.log(timer.textContent);
         }
@@ -25,6 +23,12 @@ class Timer {
 
     stopTimer() {
         clearInterval(this.time);
+    }
+
+    removeTimer() {
+        const timer = document.getElementById("timer");
+        timer.textContent = "n/a";
+
     }
 }
 

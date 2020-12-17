@@ -71,10 +71,10 @@ class Cocktail {
         ];
         this.emptyArr = ["none", "none", "none"];
         this.dataIdArr = [];
-        this.generateIngredients();
-        this.generateEmptylists();
-        this.clearShakerList();
-        this.removeShakerList();
+        // this.generateIngredients();
+        // this.generateEmptylists();
+        // this.clearShakerList();
+        // this.removeShakerList();
     }
 
     generateIngredients() {
@@ -171,12 +171,20 @@ class Customer {
 
         this.customerArr = [
             {
-                name: "man",
-                url: "../images/customer/boy.png"
+                name: "male_1",
+                url: "../images/customer/male_1.png"
             },
             {
-                name: "woman",
-                url: "../images/customer/girl.png"
+                name: "male_2",
+                url: "../images/customer/male_2.png"
+            },
+            {
+                name: "female_1",
+                url: "../images/customer/female_1.png"
+            },
+            {
+                name: "female_2",
+                url: "../images/customer/female_2.png"
             }
         ]
     }
@@ -227,32 +235,23 @@ __webpack_require__.r(__webpack_exports__);
 class Game {
     constructor() {
         this.start();
-        this.nextOrder();
+        this.checkForMatch();
     }
 
     start() {
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().generateIngredients();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().generateEmptylists();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().clearShakerList();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerList();
         new _order__WEBPACK_IMPORTED_MODULE_2__.default().generateOrder();
         new _customer__WEBPACK_IMPORTED_MODULE_1__.default().generateCustomer();
         new _timer__WEBPACK_IMPORTED_MODULE_3__.default().generateTimer();
     }
 
-    nextOrder() {
-        // let timeStart = new Date().getTime();
-        // let diff = 7000 * 10;
-        // let timeNext = (timeStart + diff);
-
-        // setTimeout(() => {
-        //     new Customer().removeCustomer();
-        //     new Timer().stopTimer();
-        //     new Order().removeOrder();
-        //     new Customer().generateCustomer();
-        //     new Timer().generateTimer();
-        //     new Order().generateOrder();
-        // }, 8000);
+    checkForMatch() {
+        const check = document.getElementById("check");
+        check.addEventListener("click", () => new _order__WEBPACK_IMPORTED_MODULE_2__.default().checkRecipeMatch());
     }
-
-
 
 }
 
@@ -310,13 +309,15 @@ sayHi("R2D2");
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+/* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
+
 class Order {
     constructor() {
 
@@ -347,14 +348,59 @@ class Order {
         const order = document.getElementById("order");
         const h2 = document.createElement("h2");
         h2.classList.add("order")
-        h2.textContent = `...${randomOrder}`;
+        h2.textContent = `${randomOrder}`;
         order.appendChild(h2)
+    }
+
+    checkRecipeMatch() {
+        let cocktailIdArr = [];
+        const findOrder = document.getElementsByClassName("order")[0].textContent;
+        this.orderArr.forEach((item, i) => {
+            if (item.cocktail === findOrder) {
+                cocktailIdArr.push(i);
+            }
+        })
+        const recipeArr = this.orderArr[cocktailIdArr[0]].recipe;
+        const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
+        const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
+        const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
+
+       if ( (recipeArr.includes(shakerList1)) && (recipeArr.includes(shakerList2)) && (recipeArr.includes(shakerList3)) ) {
+            alert("you win!");
+            this.clearList();
+            this.result();
+            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
+            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().generateCustomer();
+            this.removeOrder();
+            this.generateOrder();
+            return true;
+       } else {
+           alert("try again!")
+           return false;
+       }
+        
     }
 
     removeOrder() {
         const h2 = document.querySelector("#order > h2");
         const h1 = document.getElementById("order");
         h1.removeChild(h2);
+    }
+
+    clearList() {
+        const imgs = document.querySelectorAll("#shaker-lists img");
+        imgs.forEach((img) => {
+            img.textContent = "none"
+            img.setAttribute("src", "../images/bar-ingredients/blank.jpg")
+        })
+    }
+
+    result() {
+        debugger
+        const res = document.getElementById("result");
+        let resInt = parseInt(res.textContent);
+        resInt += 1000;
+        res.textContent = resInt;
     }
 };
 
@@ -391,11 +437,9 @@ class Timer {
         let timeleft = timer.textContent;
         timeleft -= 1;
         if (timeleft <= 0) {
-            timer.textContent = "0"
+            timer.textContent = "game over"
             this.stopTimer();
-            console.log("stephanie pussy always hella tight")
-        } 
-        else {
+        } else {
             timer.textContent = timeleft;
             console.log(timer.textContent);
         }
@@ -403,6 +447,12 @@ class Timer {
 
     stopTimer() {
         clearInterval(this.time);
+    }
+
+    removeTimer() {
+        const timer = document.getElementById("timer");
+        timer.textContent = "n/a";
+
     }
 }
 

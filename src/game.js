@@ -5,32 +5,23 @@ import Timer from './timer';
 class Game {
     constructor() {
         this.start();
-        this.nextOrder();
+        this.checkForMatch();
     }
 
     start() {
-        new Cocktail();
+        new Cocktail().generateIngredients();
+        new Cocktail().generateEmptylists();
+        new Cocktail().clearShakerList();
+        new Cocktail().removeShakerList();
         new Order().generateOrder();
         new Customer().generateCustomer();
         new Timer().generateTimer();
     }
 
-    nextOrder() {
-        // let timeStart = new Date().getTime();
-        // let diff = 7000 * 10;
-        // let timeNext = (timeStart + diff);
-
-        // setTimeout(() => {
-        //     new Customer().removeCustomer();
-        //     new Timer().stopTimer();
-        //     new Order().removeOrder();
-        //     new Customer().generateCustomer();
-        //     new Timer().generateTimer();
-        //     new Order().generateOrder();
-        // }, 8000);
+    checkForMatch() {
+        const check = document.getElementById("check");
+        check.addEventListener("click", () => new Order().checkRecipeMatch());
     }
-
-
 
 }
 

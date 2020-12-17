@@ -158,7 +158,7 @@
     display: block;
     position: fixed;
     z-index: 1; 
-    padding-top: 100px;
+    padding-top: 20px;
     left: 0;
     top: 0;
     width: 100%; 
@@ -166,15 +166,16 @@
     overflow: auto;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.85);
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .inner-modal {
-    background-color: lightgray;
+    background-color: whitesmoke;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    height: 400px;
+    width: 60%;
+    height: 625px;
     border-radius: 10px;
 }
 
@@ -202,23 +203,49 @@
     border-radius: 10px;
 }
 
-.modal-heading, .modal-instruction {
+.modal-heading {
     color: purple;
-    font-size: 20px;
+    font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 25px;
+    font-family: inherit;
+}
+
+.modal-instruction {
+    color: purple;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    font-family: inherit;
 }
 
 #button {
-    width: 300px;
-    height: 100px;
-    font-size: 30px;
-    border-radius: 10px;
-    color: purple;
-    background-color: whitesmoke;
+    width: 250px;
+    height: 70px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: purple;
     border: none;
+    font-family: inherit;
+    position: relative;
+}
+
+#button3 {
+    width: 250px;
+    height: 70px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    border: none;
+    font-family: inherit;
+    margin-left: 10px;
+    position: relative;
 }
 
 .button-container {
@@ -228,14 +255,15 @@
     margin-top: 25px;
 }
 
-#button:hover {
+#button:hover, #button3:hover {
     cursor: pointer;
     filter: brightness(105%);
-    background-color: purple;
-    color: white;
+    /* background-color: purple;
+    color: white; */
+    top: -2px;
 }
 
-#button:focus {
+#button:focus, #button3:focus {
     outline: none;
 }
 
@@ -292,4 +320,49 @@
     font-family: 'Space Grotesk', sans-serif;
     color: green;
     font-size: 30px;
+}
+
+.instruction-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.instruction-img-2 {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    padding-bottom: 15px;
+}
+
+.instruction-img-lime {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    padding-bottom: 15px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.instruction-answer {
+    font-family: inherit;
+    font-size: 40px;
+    color: black;
+    padding-bottom: 55px;
+    position: relative;
+    top: -22px;
+}
+
+.recipe-instruction-container {
+    margin-left: 14%;
+}
+
+.recipe-instruction-outer-container {
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
 }

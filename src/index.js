@@ -10,11 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const start2 = document.getElementById("button3");
     banana.style.display = "none";
 
+    // start.addEventListener("mouseenter", () => {
+    //     const audio = document.querySelector("audio");
+    //     audio.play();
+    // })
+
+    // start.addEventListener("mouseleave", () => {
+    //     const audio = document.querySelector("audio");
+    //     audio.pause();
+    //     audio.currentTime = 0;
+    // })
+
     start.addEventListener("click", () => {
+        const audio = document.querySelector("audio");
         modal.style.display = "none";
         banana.style.display = "block";
         new Game();
-        const audio = document.querySelector("audio");
         audio.play();
     })
 

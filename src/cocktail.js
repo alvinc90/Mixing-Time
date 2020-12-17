@@ -91,6 +91,14 @@ class Cocktail {
             li.appendChild(img);
         })
     };
+    
+    removeIngredients() {
+        const ul = document.getElementById("cocktail-ingredients");
+        const list = document.querySelectorAll("#cocktail-ingredients li");
+        list.forEach((li) => {
+            ul.removeChild(li)
+        })
+    }
 
     generateEmptylists() {
         this.emptyArr.forEach((emp) => {
@@ -104,6 +112,14 @@ class Cocktail {
             li.classList.add("ingredient-box-2")
             ul.appendChild(li);
             li.appendChild(img);
+        })
+    }
+
+    removeShakerLists() {
+        const ul = document.getElementById("shaker-lists");
+        const lists = document.querySelectorAll("#shaker-lists li");
+        lists.forEach((li) => {
+            ul.removeChild(li);
         })
     }
 

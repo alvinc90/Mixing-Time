@@ -17,7 +17,8 @@
             <h2 class="modal-instruction">Instruction</h2>
             <p class="modal-instruction">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum illum blanditiis consequuntur eos optio! Enim laborum fugit consectetur quod?</p>
             <div class="button-container">
-                <button id="button">Start Game</button>
+                <button id="button">Start Game(with sound)</button>
+                <button id="button3">Start Game(no sound)</button>
             </div>
         </div>
     </div>
@@ -40,7 +41,9 @@
             <ul class="nav-bar">
                 <li><img src="./images/links/GitHub.png" alt="GitHub"></li>
                 <li><img src="./images/links/linkedin.png" alt="LinkedIn"></li>
-                <li>Portfolio</li>
+                <audio controls autoplay loop>
+                    <source src="./audio/Allume-Cockney.mp3" type="audio/mp3">
+                </audio>
             </ul>
         </nav>
     </header>
@@ -83,9 +86,6 @@
     <footer>
 
     </footer>
-    <!-- <audio controls autoplay loop>
-        <source src="./audio/Allume-Cockney.mp3" type="audio/mp3">
-    </audio> -->
     <script src="./bundle.js"></script>
 </body>
 </html>

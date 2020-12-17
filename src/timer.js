@@ -1,3 +1,6 @@
+import Order from './order';
+import Customer from './customer';
+
 class Timer {
     constructor() {
         this.time = null;
@@ -17,11 +20,16 @@ class Timer {
         let timeleft = timer.textContent;
         timeleft -= 1;
         if (timeleft <= 0) {
-            timer.textContent = "game over"
+            timer.textContent = "45";
             this.stopTimer();
             closingModal.style.display = "block";
             banana.style.display = "none";
             highscore.textContent = result.textContent
+            const audio = document.querySelector("audio");
+            audio.pause();
+            audio.currentTime = 0;
+            new Order().removeOrder();
+            new Customer().removeCustomer();
         } else {
             timer.textContent = timeleft;
             console.log(timer.textContent);

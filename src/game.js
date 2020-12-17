@@ -2,8 +2,10 @@ import Cocktail from './cocktail';
 import Customer from './customer';
 import Order from './order';
 import Timer from './timer';
+import Sound from './sound';
 class Game {
     constructor() {
+        this.reset();
         this.start();
         this.checkForMatch();
     }
@@ -24,7 +26,9 @@ class Game {
     }
 
     reset() {
-        
+         new Cocktail().removeIngredients();
+         new Cocktail().removeShakerLists();
+         new Order().resetResult();
     }
 
 }

@@ -109,6 +109,14 @@ class Cocktail {
             li.appendChild(img);
         })
     };
+    
+    removeIngredients() {
+        const ul = document.getElementById("cocktail-ingredients");
+        const list = document.querySelectorAll("#cocktail-ingredients li");
+        list.forEach((li) => {
+            ul.removeChild(li)
+        })
+    }
 
     generateEmptylists() {
         this.emptyArr.forEach((emp) => {
@@ -122,6 +130,14 @@ class Cocktail {
             li.classList.add("ingredient-box-2")
             ul.appendChild(li);
             li.appendChild(img);
+        })
+    }
+
+    removeShakerLists() {
+        const ul = document.getElementById("shaker-lists");
+        const lists = document.querySelectorAll("#shaker-lists li");
+        lists.forEach((li) => {
+            ul.removeChild(li);
         })
     }
 
@@ -228,12 +244,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
 /* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./order */ "./src/order.js");
 /* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./timer */ "./src/timer.js");
+/* harmony import */ var _sound__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sound */ "./src/sound.js");
+
 
 
 
 
 class Game {
     constructor() {
+        this.reset();
         this.start();
         this.checkForMatch();
     }
@@ -254,7 +273,9 @@ class Game {
     }
 
     reset() {
-        
+         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeIngredients();
+         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerLists();
+         new _order__WEBPACK_IMPORTED_MODULE_2__.default().resetResult();
     }
 
 }
@@ -283,9 +304,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const start = document.getElementById("button");
     const banana = document.getElementsByClassName("left-inner-container")[0];
     const restart = document.getElementById("button2");
+    const start2 = document.getElementById("button3");
     banana.style.display = "none";
 
     start.addEventListener("click", () => {
+        modal.style.display = "none";
+        banana.style.display = "block";
+        new _game__WEBPACK_IMPORTED_MODULE_0__.default();
+        const audio = document.querySelector("audio");
+        // audio.play();
+    })
+
+    start2.addEventListener("click", () => {
         modal.style.display = "none";
         banana.style.display = "block";
         new _game__WEBPACK_IMPORTED_MODULE_0__.default();
@@ -296,12 +326,9 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         closingModal.style.display = "none";
         new _game__WEBPACK_IMPORTED_MODULE_0__.default();
+        const audio = document.querySelector("audio");
+        // audio.play();
     })
-    
-    // new Game();
-    // new sound("./audio/Allume-Cockney.mp3").play();
-    // const audio = document.querySelector("audio");
-    // audio.play();
 })
 
 const sayHi = (name) => {
@@ -364,7 +391,7 @@ class Order {
         h2.textContent = `${randomOrder}`;
         order.appendChild(h2)
     }
-
+    
     checkRecipeMatch() {
         let cocktailIdArr = [];
         const findOrder = document.getElementsByClassName("order")[0].textContent;
@@ -409,11 +436,15 @@ class Order {
     }
 
     result() {
-        debugger
         const res = document.getElementById("result");
         let resInt = parseInt(res.textContent);
         resInt += 1000;
         res.textContent = resInt;
+    }
+
+    resetResult() {
+        const res = document.getElementById("result");
+        res.textContent = "0";
     }
 };
 
@@ -421,9 +452,9 @@ class Order {
 
 /***/ }),
 
-/***/ "./src/timer.js":
+/***/ "./src/sound.js":
 /*!**********************!*\
-  !*** ./src/timer.js ***!
+  !*** ./src/sound.js ***!
   \**********************/
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
@@ -435,6 +466,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sound);
+
+/***/ }),
+
+/***/ "./src/timer.js":
+/*!**********************!*\
+  !*** ./src/timer.js ***!
+  \**********************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./order */ "./src/order.js");
+/* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
+
+
+
 class Timer {
     constructor() {
         this.time = null;
@@ -454,11 +523,16 @@ class Timer {
         let timeleft = timer.textContent;
         timeleft -= 1;
         if (timeleft <= 0) {
-            timer.textContent = "game over"
+            timer.textContent = "45";
             this.stopTimer();
             closingModal.style.display = "block";
             banana.style.display = "none";
             highscore.textContent = result.textContent
+            const audio = document.querySelector("audio");
+            audio.pause();
+            audio.currentTime = 0;
+            new _order__WEBPACK_IMPORTED_MODULE_0__.default().removeOrder();
+            new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
         } else {
             timer.textContent = timeleft;
             console.log(timer.textContent);

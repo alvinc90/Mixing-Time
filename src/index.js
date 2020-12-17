@@ -7,9 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const start = document.getElementById("button");
     const banana = document.getElementsByClassName("left-inner-container")[0];
     const restart = document.getElementById("button2");
+    const start2 = document.getElementById("button3");
     banana.style.display = "none";
 
     start.addEventListener("click", () => {
+        modal.style.display = "none";
+        banana.style.display = "block";
+        new Game();
+        const audio = document.querySelector("audio");
+        // audio.play();
+    })
+
+    start2.addEventListener("click", () => {
         modal.style.display = "none";
         banana.style.display = "block";
         new Game();
@@ -20,12 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         closingModal.style.display = "none";
         new Game();
+        const audio = document.querySelector("audio");
+        // audio.play();
     })
-    
-    // new Game();
-    // new sound("./audio/Allume-Cockney.mp3").play();
-    // const audio = document.querySelector("audio");
-    // audio.play();
 })
 
 const sayHi = (name) => {

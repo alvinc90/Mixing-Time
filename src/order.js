@@ -32,7 +32,7 @@ class Order {
         h2.textContent = `${randomOrder}`;
         order.appendChild(h2)
     }
-
+    
     checkRecipeMatch() {
         let cocktailIdArr = [];
         const findOrder = document.getElementsByClassName("order")[0].textContent;
@@ -77,11 +77,15 @@ class Order {
     }
 
     result() {
-        debugger
         const res = document.getElementById("result");
         let resInt = parseInt(res.textContent);
         resInt += 1000;
         res.textContent = resInt;
+    }
+
+    resetResult() {
+        const res = document.getElementById("result");
+        res.textContent = "0";
     }
 };
 

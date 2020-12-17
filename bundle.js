@@ -21,7 +21,7 @@ class Cocktail {
         this.ingredients = [
            {
                name: "tequila",
-               img: "../images/bar-ingredients/tequila.png"
+               img: "../images/bar-ingredients/tequila.PNG"
            },
            {
                name: "vodka",

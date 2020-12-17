@@ -11,7 +11,7 @@
     <title>Mixing Time!</title>
 </head>
 <body>
-    <div id="mymodal" class="outer-modal">
+    <div id="opening-modal" class="outer-modal">
         <div class="inner-modal">
             <h1 class="modal-heading">Welcome to MixingTime!</h1>
             <h2 class="modal-instruction">Instruction</h2>
@@ -21,15 +21,17 @@
             </div>
         </div>
     </div>
-    
-    <div id="mymodal" class="outer-modal">
-        <div class="inner-modal">
-            <h1 class="modal-heading">Welcome to MixingTime!</h1>
-            <h2 class="modal-instruction">Instruction</h2>
-            <p class="modal-instruction">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum illum blanditiis consequuntur eos optio! Enim laborum fugit consectetur quod?</p>
+
+    <div id="closing-modal" class="outer-modal2">
+        <div class="inner-modal2">
+            <h1 class="modal-instruction">Times Up</h1>
+            <h1 class="modal-instruction">Game Over..</h1>
+            <h2 class="modal-heading">Your High Score is: <span id=highscore></span></h2>
             <div class="button-container">
-                <button id="button">Start Game</button>
+                <button id="button2">Click Here Restart</button>
             </div>
+            <li><img class="img-modal" src="./images/links/GitHub.png" alt="GitHub"></li>
+            <li><img class="img-modal" src="./images/links/linkedin.png" alt="LinkedIn"></li>
         </div>
     </div>
 
@@ -63,7 +65,7 @@
 
             <div class="right-container">
                 <div class="time-score-container">
-                    <h1 id="timer" class="timer">30</h1>
+                    <h1 id="timer" class="timer">45</h1>
                     <h1 class="score-container">
                         <span class="score">score:</span>
                         <span id="result" class="result">0</span>

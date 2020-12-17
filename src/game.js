@@ -23,6 +23,10 @@ class Game {
         check.addEventListener("click", () => new Order().checkRecipeMatch());
     }
 
+    reset() {
+        
+    }
+
 }
 
 export default Game;

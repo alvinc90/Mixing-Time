@@ -72,7 +72,7 @@ class Order {
         const imgs = document.querySelectorAll("#shaker-lists img");
         imgs.forEach((img) => {
             img.textContent = "none"
-            img.setAttribute("src", "../images/bar-ingredients/blank.jpg")
+            img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
         })
     }
 

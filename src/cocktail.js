@@ -3,51 +3,51 @@ class Cocktail {
         this.ingredients = [
            {
                name: "tequila",
-               img: "../images/bar-ingredients/tequila.png"
+               img: "../images/bar_ingredients/tequila.png"
            },
            {
                name: "vodka",
-               img: "../images/bar-ingredients/vodka.png"
+               img: "../images/bar_ingredients/vodka.png"
            },
            {
                name: "rum",
-               img: "../images/bar-ingredients/rum.png"
+               img: "../images/bar_ingredients/rum.png"
            },
            {
                name: "whiskey",
-               img: "../images/bar-ingredients/whiskey.png"
+               img: "../images/bar_ingredients/whiskey.png"
            },
            {
                name: "lime",
-               img: "../images/bar-ingredients/lime3.png"
+               img: "../images/bar_ingredients/lime3.png"
            },
            {
                name: "salt",
-               img: "../images/bar-ingredients/salt.png"
+               img: "../images/bar_ingredients/salt.png"
            },
            {
                name: "olive",
-               img: "../images/bar-ingredients/olive.png"
+               img: "../images/bar_ingredients/olive.png"
            },
            {
                name: "ice",
-               img: "../images/bar-ingredients/ice2.png"
+               img: "../images/bar_ingredients/ice2.png"
            },
            {
                name: "mint",
-               img: "../images/bar-ingredients/mint.png"
+               img: "../images/bar_ingredients/mint.png"
            },
            {
                name: "cherry",
-               img: "../images/bar-ingredients/cherry2.png"
+               img: "../images/bar_ingredients/cherry2.png"
            },
            {
                name: "orange",
-               img: "../images/bar-ingredients/orange.png"
+               img: "../images/bar_ingredients/orange.png"
            },
            {
                name: "lemon",
-               img: "../images/bar-ingredients/lemon.png"
+               img: "../images/bar_ingredients/lemon.png"
            },
 
         ];
@@ -105,7 +105,7 @@ class Cocktail {
             const ul = document.getElementById("shaker-lists");
             const li = document.createElement("li");
             const img = document.createElement("img");
-            img.setAttribute("src", "../images/bar-ingredients/blank.jpg")
+            img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
             img.textContent = "none";
             img.classList.add("ingredient-box-image")
             li.textContent = emp
@@ -129,7 +129,7 @@ class Cocktail {
             const imgs = document.querySelectorAll("#shaker-lists img");
             imgs.forEach((img) => {
                 img.textContent = "none"
-                img.setAttribute("src", "../images/bar-ingredients/blank.jpg")
+                img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
             })
         })
     }
@@ -139,7 +139,7 @@ class Cocktail {
        imgs.forEach((img) => {
            img.addEventListener("click", () => {
                img.textContent = "none";
-               img.setAttribute("src", "../images/bar-ingredients/blank.jpg")
+               img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
            })
        })
     }

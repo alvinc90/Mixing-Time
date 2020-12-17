@@ -257,6 +257,7 @@
 
 .time-score-container, .customer-order-container {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .score-container {
@@ -264,9 +265,31 @@
     font-size: 40px;
     margin: 70px 20px;
     font-family: 'Space Grotesk', sans-serif;
+    /* border: 1px solid hotpink; */
+    width: 100px;
+    padding-left: 45px;
+}
+
+.timer-container {
+    width: 100px;
+    /* border: 1px solid hotpink; */
 }
 
 .img-modal {
     width: 100px;
     height: 100px;
+}
+
+.performance-container {
+    width: 100px;
+    height: 50px;
+    /* border: 1px solid hotpink; */
+    margin-top: 70px;
+    padding-left: 45px;
+}
+
+.danger, .warning, .good {
+    font-family: 'Space Grotesk', sans-serif;
+    color: green;
+    font-size: 30px;
 }

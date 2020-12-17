@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         banana.style.display = "block";
         new Game();
         const audio = document.querySelector("audio");
-        // audio.play();
+        audio.play();
     })
 
     start2.addEventListener("click", () => {

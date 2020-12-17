@@ -79,7 +79,7 @@ class Order {
     result() {
         const res = document.getElementById("result");
         let resInt = parseInt(res.textContent);
-        resInt += 1000;
+        resInt += 50;
         res.textContent = resInt;
     }
 

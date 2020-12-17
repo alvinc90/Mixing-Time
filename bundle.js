@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // start.addEventListener("mouseleave", () => {
     //     const audio = document.querySelector("audio");
     //     audio.pause();
-    //     audio.currentTime = 0;
+    //     audio.currentTime = 0; aa
     // })
 
     start.addEventListener("click", () => {

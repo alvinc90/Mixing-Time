@@ -25,7 +25,7 @@ class Cocktail {
            },
            {
                name: "vodka",
-               img: "images/bar_ingredients/vodka.png"
+               img: "/images/bar_ingredients/vodka.png"
            },
            {
                name: "rum",

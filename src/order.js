@@ -3,8 +3,7 @@ import Timer from './timer';
 class Order {
     constructor() {
         this.customer = new Customer();
-        this.Timer = new Timer();
-        this.checkForMatch();
+        this.timer = new Timer();
 
         this.orderArr = [
             {
@@ -59,30 +58,24 @@ class Order {
             ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
             ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
 
+            alert("Good Job!");
             this.correctDrinkRecipe();
             return true;
-        }
-        else {
+        } else {
            alert("Wrong Drink!")
-        //    this.strike();
+           this.strike();
            return false;
        }
     }
 
-    checkForMatch() {
-        const check = document.getElementById("check");
-        check.addEventListener("click", () => this.checkRecipeMatch());
-    }
-
     correctDrinkRecipe() {
-        alert("Good Job!");
         this.clearList();
         this.tips();
         this.removeOrder();
         this.generateOrder();
         this.customer.removeCustomer();
         this.customer.generateCustomer();
-        // new Timer().resetTimer();
+        this.timer.resetTimer();
     }
 
     removeOrder() {
@@ -124,25 +117,22 @@ class Order {
     }
 
     gameOver() {
-        const timer = document.getElementById("timer");
         const tips = document.getElementById("tips");
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const audio = document.querySelector("audio");
         
-        timer.textContent = "45";
+        this.timer.stopTimer();
+        this.timer.resetInitialTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         highscore.textContent = tips.textContent
         audio.pause();
         audio.currentTime = 0;
         this.removeOrder();
-        new Customer().removeCustomer();
-        new Timer().stopTimer();
+        this.customer.removeCustomer();
     }
-
-
 };
 
 export default Order;

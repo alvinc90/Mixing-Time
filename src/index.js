@@ -13,22 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let game1 = new Game();
     // let game2 = new Game();
 
-    // start.addEventListener("mouseenter", () => {
-    //     const audio = document.querySelector("audio");
-    //     audio.play();
-    // })
-
-    // start.addEventListener("mouseleave", () => {
-    //     const audio = document.querySelector("audio");
-    //     audio.pause();
-    //     audio.currentTime = 0; aa
-    // })
-
     // start with music
     start.addEventListener("click", () => {
         modal.style.display = "none";
         banana.style.display = "block";
-        game1;
+        game1.reset();
+        game1.start();
         // new Game();
         audio.play();
     })
@@ -37,7 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     start2.addEventListener("click", () => {
         modal.style.display = "none";
         banana.style.display = "block";
-        game1;
+        game1.reset();
+        game1.start();
     })
 
     // restart with music
@@ -45,8 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         banana.style.display = "block";
         closingModal.style.display = "none";
-        // game1;
+        game1.reset();
+        game1.start();
         // new Game();
+        // game2.reset();
+        // game2.start();
         // audio.play();
     })
 })
@@ -58,3 +52,14 @@ const sayHi = (name) => {
     
 };
 sayHi("R2D2");
+
+// start.addEventListener("mouseenter", () => {
+    //     const audio = document.querySelector("audio");
+    //     audio.play();
+    // })
+
+    // start.addEventListener("mouseleave", () => {
+    //     const audio = document.querySelector("audio");
+    //     audio.pause();
+    //     audio.currentTime = 0; aa
+    // })

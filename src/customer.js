@@ -1,6 +1,5 @@
 class Customer {
     constructor() {
-
         this.customerArr = [
             {
                 name: "male_1",
@@ -29,7 +28,7 @@ class Customer {
         img.classList.add("customer")
         h1.appendChild(img);
     }
-
+    
     removeCustomer() {
         const h1 = document.getElementById("customer");
         const img = document.querySelector("#customer > img");

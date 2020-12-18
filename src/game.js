@@ -8,9 +8,9 @@ class Game {
         this.order = new Order();
         this.customer = new Customer();
         this.timer = new Timer();
-        this.reset();
-        this.start();
-        // this.checkForMatch = this.checkForMatch.bind(this);
+        // this.reset();
+        // this.start();
+        this.checkForMatch();
     }
 
     reset() {
@@ -32,10 +32,10 @@ class Game {
     }
 
 
-    // checkForMatch() {
-    //     const check = document.getElementById("check");
-    //     check.addEventListener("click", () => this.order.checkRecipeMatch());
-    // }
+    checkForMatch() {
+        const check = document.getElementById("check");
+        check.addEventListener("click", () => this.order.checkRecipeMatch());
+    }
 
 
 }

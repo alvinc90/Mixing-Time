@@ -1,10 +1,13 @@
-import Order from './order';
+// import Order from './order';
 import Customer from './customer';
 import Cocktail from './cocktail';
+import Order from './order';
 
 class Timer {
-    constructor(name) {
-        this.name = name;
+    constructor() {
+        // this.order = new Order();
+        this.customer = new Customer();
+        this.cocktail = new Cocktail();
         this.time = null;
         this.countdown = this.countdown.bind(this);
     }
@@ -26,17 +29,17 @@ class Timer {
             timer.textContent = timeleft;
             console.log(timer.textContent);
         }
-    }
+    } 
 
     afterTimerReachesZero() {
         const tips = document.getElementById("tips");
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
-        const timer = document.getElementById("timer");
         const audio = document.querySelector("audio");
 
-        timer.textContent = "45";
+
+        this.resetInitialTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         highscore.textContent = tips.textContent
@@ -54,20 +57,28 @@ class Timer {
         this.stopTimer();
     }
 
-    stopTimer() {
-        clearInterval(this.time);
-    }
-
-    removeTimer() {
+    resetInitialTimer() {
         const timer = document.getElementById("timer");
         timer.textContent = "10";
     }
 
     resetTimer() {
-        this.stopTimer();
-        this.removeTimer();
-        this.generateTimer();
+        // this.stopTimer();
+        this.resetSeconds();
+        // this.generateTimer();
     }
+
+    stopTimer() {
+        clearInterval(this.time);
+    }
+
+    resetSeconds() {
+        const timer = document.getElementById("timer");
+        timer.textContent = "11";
+    
+    
+    }
+
 
 }
 

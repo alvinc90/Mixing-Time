@@ -184,7 +184,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 class Customer {
     constructor() {
-
         this.customerArr = [
             {
                 name: "male_1",
@@ -213,7 +212,7 @@ class Customer {
         img.classList.add("customer")
         h1.appendChild(img);
     }
-
+    
     removeCustomer() {
         const h1 = document.getElementById("customer");
         const img = document.querySelector("#customer > img");
@@ -256,9 +255,9 @@ class Game {
         this.order = new _order__WEBPACK_IMPORTED_MODULE_2__.default();
         this.customer = new _customer__WEBPACK_IMPORTED_MODULE_1__.default();
         this.timer = new _timer__WEBPACK_IMPORTED_MODULE_3__.default();
-        this.reset();
-        this.start();
-        // this.checkForMatch = this.checkForMatch.bind(this);
+        // this.reset();
+        // this.start();
+        this.checkForMatch();
     }
 
     reset() {
@@ -280,10 +279,10 @@ class Game {
     }
 
 
-    // checkForMatch() {
-    //     const check = document.getElementById("check");
-    //     check.addEventListener("click", () => this.order.checkRecipeMatch());
-    // }
+    checkForMatch() {
+        const check = document.getElementById("check");
+        check.addEventListener("click", () => this.order.checkRecipeMatch());
+    }
 
 
 }
@@ -318,22 +317,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let game1 = new _game__WEBPACK_IMPORTED_MODULE_0__.default();
     // let game2 = new Game();
 
-    // start.addEventListener("mouseenter", () => {
-    //     const audio = document.querySelector("audio");
-    //     audio.play();
-    // })
-
-    // start.addEventListener("mouseleave", () => {
-    //     const audio = document.querySelector("audio");
-    //     audio.pause();
-    //     audio.currentTime = 0; aa
-    // })
-
     // start with music
     start.addEventListener("click", () => {
         modal.style.display = "none";
         banana.style.display = "block";
-        game1;
+        game1.reset();
+        game1.start();
         // new Game();
         audio.play();
     })
@@ -342,7 +331,8 @@ document.addEventListener("DOMContentLoaded", () => {
     start2.addEventListener("click", () => {
         modal.style.display = "none";
         banana.style.display = "block";
-        game1;
+        game1.reset();
+        game1.start();
     })
 
     // restart with music
@@ -350,8 +340,11 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
         banana.style.display = "block";
         closingModal.style.display = "none";
-        // game1;
+        game1.reset();
+        game1.start();
         // new Game();
+        // game2.reset();
+        // game2.start();
         // audio.play();
     })
 })
@@ -363,6 +356,17 @@ const sayHi = (name) => {
     
 };
 sayHi("R2D2");
+
+// start.addEventListener("mouseenter", () => {
+    //     const audio = document.querySelector("audio");
+    //     audio.play();
+    // })
+
+    // start.addEventListener("mouseleave", () => {
+    //     const audio = document.querySelector("audio");
+    //     audio.pause();
+    //     audio.currentTime = 0; aa
+    // })
 
 
 /***/ }),
@@ -388,8 +392,7 @@ __webpack_require__.r(__webpack_exports__);
 class Order {
     constructor() {
         this.customer = new _customer__WEBPACK_IMPORTED_MODULE_0__.default();
-        this.Timer = new _timer__WEBPACK_IMPORTED_MODULE_1__.default();
-        this.checkForMatch();
+        this.timer = new _timer__WEBPACK_IMPORTED_MODULE_1__.default();
 
         this.orderArr = [
             {
@@ -444,30 +447,24 @@ class Order {
             ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
             ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
 
+            alert("Good Job!");
             this.correctDrinkRecipe();
             return true;
-        }
-        else {
+        } else {
            alert("Wrong Drink!")
-        //    this.strike();
+           this.strike();
            return false;
        }
     }
 
-    checkForMatch() {
-        const check = document.getElementById("check");
-        check.addEventListener("click", () => this.checkRecipeMatch());
-    }
-
     correctDrinkRecipe() {
-        alert("Good Job!");
         this.clearList();
         this.tips();
         this.removeOrder();
         this.generateOrder();
         this.customer.removeCustomer();
         this.customer.generateCustomer();
-        // new Timer().resetTimer();
+        this.timer.resetTimer();
     }
 
     removeOrder() {
@@ -509,25 +506,22 @@ class Order {
     }
 
     gameOver() {
-        const timer = document.getElementById("timer");
         const tips = document.getElementById("tips");
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const audio = document.querySelector("audio");
         
-        timer.textContent = "45";
+        this.timer.stopTimer();
+        this.timer.resetInitialTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         highscore.textContent = tips.textContent
         audio.pause();
         audio.currentTime = 0;
         this.removeOrder();
-        new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
-        new _timer__WEBPACK_IMPORTED_MODULE_1__.default().stopTimer();
+        this.customer.removeCustomer();
     }
-
-
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
@@ -548,16 +542,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./order */ "./src/order.js");
-/* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
-/* harmony import */ var _cocktail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cocktail */ "./src/cocktail.js");
+/* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
+/* harmony import */ var _cocktail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cocktail */ "./src/cocktail.js");
+/* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./order */ "./src/order.js");
+// import Order from './order';
 
 
 
 
 class Timer {
-    constructor(name) {
-        this.name = name;
+    constructor() {
+        // this.order = new Order();
+        this.customer = new _customer__WEBPACK_IMPORTED_MODULE_0__.default();
+        this.cocktail = new _cocktail__WEBPACK_IMPORTED_MODULE_1__.default();
         this.time = null;
         this.countdown = this.countdown.bind(this);
     }
@@ -579,17 +576,17 @@ class Timer {
             timer.textContent = timeleft;
             console.log(timer.textContent);
         }
-    }
+    } 
 
     afterTimerReachesZero() {
         const tips = document.getElementById("tips");
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
-        const timer = document.getElementById("timer");
         const audio = document.querySelector("audio");
 
-        timer.textContent = "45";
+
+        this.resetInitialTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         highscore.textContent = tips.textContent
@@ -599,28 +596,36 @@ class Timer {
     }
 
     resetGame() {
-        new _cocktail__WEBPACK_IMPORTED_MODULE_2__.default().removeIngredients();
-        new _cocktail__WEBPACK_IMPORTED_MODULE_2__.default().removeShakerLists();
-        new _order__WEBPACK_IMPORTED_MODULE_0__.default().resetTips();
-        new _order__WEBPACK_IMPORTED_MODULE_0__.default().removeOrder();
-        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_1__.default().removeIngredients();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_1__.default().removeShakerLists();
+        new _order__WEBPACK_IMPORTED_MODULE_2__.default().resetTips();
+        new _order__WEBPACK_IMPORTED_MODULE_2__.default().removeOrder();
+        new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
         this.stopTimer();
+    }
+
+    resetInitialTimer() {
+        const timer = document.getElementById("timer");
+        timer.textContent = "10";
+    }
+
+    resetTimer() {
+        // this.stopTimer();
+        this.resetSeconds();
+        // this.generateTimer();
     }
 
     stopTimer() {
         clearInterval(this.time);
     }
 
-    removeTimer() {
+    resetSeconds() {
         const timer = document.getElementById("timer");
-        timer.textContent = "10";
+        timer.textContent = "11";
+    
+    
     }
 
-    resetTimer() {
-        this.stopTimer();
-        this.removeTimer();
-        this.generateTimer();
-    }
 
 }
 

@@ -278,7 +278,6 @@ class Game {
 
     checkForMatch() {
         const check = document.getElementById("check");
-        debugger
         check.addEventListener("click", () => new _order__WEBPACK_IMPORTED_MODULE_2__.default().checkRecipeMatch());
     }
 
@@ -410,7 +409,6 @@ class Order {
     }
     
     checkRecipeMatch() {
-        debugger
         let cocktailIdArr = [];
         const findOrder = document.getElementsByClassName("order")[0].textContent;
         this.orderArr.forEach((item, i) => {
@@ -422,29 +420,25 @@ class Order {
         const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
         const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
         const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
-        debugger
+
        if ( ( recipeArr.includes(shakerList1) && ( (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3) ) ) && 
             ( recipeArr.includes(shakerList2) && ( (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3) ) ) && 
             ( recipeArr.includes(shakerList3) && ( (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) ) )  ) {
-            // alert("Good Job!");
-            // this.clearList();
-            // this.result();
-            // this.removeOrder();
-            // this.generateOrder();
-            // new Customer().removeCustomer();
-            // new Customer().generateCustomer();
-            console.log("angela pussy was sweet");
-            // new Timer().resetTimer();
-            debugger
+            alert("Good Job!");
+            this.clearList();
+            this.result();
+            this.removeOrder();
+            this.generateOrder();
+            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
+            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().generateCustomer();
+    
+            new _timer__WEBPACK_IMPORTED_MODULE_1__.default().resetTimer();
             return true;
         } 
-        // else if ( shakerList1 === "your mama pussy so tight")  {
         else {
-           debugger
-           console.log("stephanie pussy was the best");
-        //    alert("Wrong Drink!")
-        //    this.strike();
-        //    return false;
+           alert("Wrong Drink!")
+           this.strike();
+           return false;
        }
         
     }

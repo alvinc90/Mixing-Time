@@ -30,7 +30,6 @@ class Game {
 
     checkForMatch() {
         const check = document.getElementById("check");
-        debugger
         check.addEventListener("click", () => new Order().checkRecipeMatch());
     }
 

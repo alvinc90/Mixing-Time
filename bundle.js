@@ -252,34 +252,38 @@ __webpack_require__.r(__webpack_exports__);
 
 class Game {
     constructor() {
+        this.cocktail = new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default();
+        this.order = new _order__WEBPACK_IMPORTED_MODULE_2__.default();
+        this.customer = new _customer__WEBPACK_IMPORTED_MODULE_1__.default();
+        this.timer = new _timer__WEBPACK_IMPORTED_MODULE_3__.default();
         this.reset();
         this.start();
-        this.checkForMatch();
+        // this.checkForMatch = this.checkForMatch.bind(this);
     }
 
     reset() {
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeIngredients();
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerLists();
-        new _order__WEBPACK_IMPORTED_MODULE_2__.default().resetResult();
-        new _order__WEBPACK_IMPORTED_MODULE_2__.default().removeOrder();
-        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
+        this.cocktail.removeIngredients();
+        this.cocktail.removeShakerLists();
+        this.order.resetTips();
+        this.order.removeOrder();
+        this.customer.removeCustomer();
     }
 
     start() {
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().generateIngredients();
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().generateEmptylists();
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerIngredientButton();
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().clearShakerListButton();
-        new _order__WEBPACK_IMPORTED_MODULE_2__.default().generateOrder();
-        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().generateCustomer();
-        new _timer__WEBPACK_IMPORTED_MODULE_3__.default().generateTimer();
+        this.cocktail.generateIngredients();
+        this.cocktail.generateEmptylists();
+        this.cocktail.removeShakerIngredientButton();
+        this.cocktail.clearShakerListButton();
+        this.order.generateOrder();
+        this.customer.generateCustomer();
+        this.timer.generateTimer();
     }
 
 
-    checkForMatch() {
-        const check = document.getElementById("check");
-        check.addEventListener("click", () => new _order__WEBPACK_IMPORTED_MODULE_2__.default().checkRecipeMatch());
-    }
+    // checkForMatch() {
+    //     const check = document.getElementById("check");
+    //     check.addEventListener("click", () => this.order.checkRecipeMatch());
+    // }
 
 
 }
@@ -311,6 +315,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const start2 = document.getElementById("button3");
     const audio = document.querySelector("audio");
     banana.style.display = "none";
+    let game1 = new _game__WEBPACK_IMPORTED_MODULE_0__.default();
+    // let game2 = new Game();
 
     // start.addEventListener("mouseenter", () => {
     //     const audio = document.querySelector("audio");
@@ -323,24 +329,29 @@ document.addEventListener("DOMContentLoaded", () => {
     //     audio.currentTime = 0; aa
     // })
 
+    // start with music
     start.addEventListener("click", () => {
         modal.style.display = "none";
         banana.style.display = "block";
-        new _game__WEBPACK_IMPORTED_MODULE_0__.default();
-        // audio.play();
+        game1;
+        // new Game();
+        audio.play();
     })
 
+    // start with no music
     start2.addEventListener("click", () => {
         modal.style.display = "none";
         banana.style.display = "block";
-        new _game__WEBPACK_IMPORTED_MODULE_0__.default();
+        game1;
     })
 
+    // restart with music
     restart.addEventListener("click", () => {        
         modal.style.display = "none";
         banana.style.display = "block";
         closingModal.style.display = "none";
-        new _game__WEBPACK_IMPORTED_MODULE_0__.default();
+        // game1;
+        // new Game();
         // audio.play();
     })
 })
@@ -376,6 +387,9 @@ __webpack_require__.r(__webpack_exports__);
 
 class Order {
     constructor() {
+        this.customer = new _customer__WEBPACK_IMPORTED_MODULE_0__.default();
+        this.Timer = new _timer__WEBPACK_IMPORTED_MODULE_1__.default();
+        this.checkForMatch();
 
         this.orderArr = [
             {
@@ -407,40 +421,53 @@ class Order {
         h2.textContent = `${randomOrder}`;
         order.appendChild(h2)
     }
-    
+
     checkRecipeMatch() {
-        let cocktailIdArr = [];
+        let cocktailId;
+ 
         const findOrder = document.getElementsByClassName("order")[0].textContent;
         this.orderArr.forEach((item, i) => {
-            if (item.cocktail === findOrder) {
-                cocktailIdArr.push(i);
-            }
+            if (item.cocktail === findOrder) cocktailId = i
         })
-        const recipeArr = this.orderArr[cocktailIdArr[0]].recipe;
+        
+        const recipeArr = this.orderArr[cocktailId].recipe;
+
         const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
         const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
         const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
 
-       if ( ( recipeArr.includes(shakerList1) && ( (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3) ) ) && 
-            ( recipeArr.includes(shakerList2) && ( (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3) ) ) && 
-            ( recipeArr.includes(shakerList3) && ( (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) ) )  ) {
-            alert("Good Job!");
-            this.clearList();
-            this.result();
-            this.removeOrder();
-            this.generateOrder();
-            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
-            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().generateCustomer();
-    
-            new _timer__WEBPACK_IMPORTED_MODULE_1__.default().resetTimer();
+        const noDupList1 = (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3);
+        const noDupList2 = (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3);
+        const noDupList3 = (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) 
+
+       if ( ( recipeArr.includes(shakerList1) && ( noDupList1 ) ) && 
+            ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
+            ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
+
+            this.correctDrinkRecipe();
             return true;
-        } 
+        }
         else {
            alert("Wrong Drink!")
-           this.strike();
+        //    this.strike();
            return false;
        }
-        
+    }
+
+    checkForMatch() {
+        const check = document.getElementById("check");
+        check.addEventListener("click", () => this.checkRecipeMatch());
+    }
+
+    correctDrinkRecipe() {
+        alert("Good Job!");
+        this.clearList();
+        this.tips();
+        this.removeOrder();
+        this.generateOrder();
+        this.customer.removeCustomer();
+        this.customer.generateCustomer();
+        // new Timer().resetTimer();
     }
 
     removeOrder() {
@@ -459,16 +486,16 @@ class Order {
         })
     }
 
-    result() {
-        const res = document.getElementById("result");
-        let resInt = parseInt(res.textContent);
-        resInt += 50;
-        res.textContent = resInt;
+    tips() {
+        const tips = document.getElementById("tips");
+        let tipsInt = parseInt(tips.textContent);
+        tipsInt += 50;
+        tips.textContent = tipsInt;
     }
 
-    resetResult() {
-        const res = document.getElementById("result");
-        res.textContent = "0";
+    resetTips() {
+        const tips = document.getElementById("tips");
+        tips.textContent = "0";
     }
 
     strike() {
@@ -483,18 +510,18 @@ class Order {
 
     gameOver() {
         const timer = document.getElementById("timer");
-        const result = document.getElementById("result");
+        const tips = document.getElementById("tips");
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const audio = document.querySelector("audio");
         
-        timer.textContent = "10";
+        timer.textContent = "45";
         closingModal.style.display = "block";
         banana.style.display = "none";
-        highscore.textContent = result.textContent
-        // audio.pause();
-        // audio.currentTime = 0;
+        highscore.textContent = tips.textContent
+        audio.pause();
+        audio.currentTime = 0;
         this.removeOrder();
         new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
         new _timer__WEBPACK_IMPORTED_MODULE_1__.default().stopTimer();
@@ -529,7 +556,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class Timer {
-    constructor() {
+    constructor(name) {
+        this.name = name;
         this.time = null;
         this.countdown = this.countdown.bind(this);
     }
@@ -554,27 +582,29 @@ class Timer {
     }
 
     afterTimerReachesZero() {
-        const result = document.getElementById("result");
+        const tips = document.getElementById("tips");
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const timer = document.getElementById("timer");
         const audio = document.querySelector("audio");
 
-        timer.textContent = "60";
-        this.stopTimer();
+        timer.textContent = "45";
         closingModal.style.display = "block";
         banana.style.display = "none";
-        highscore.textContent = result.textContent
-        // audio.pause();
-        // audio.currentTime = 0;
+        highscore.textContent = tips.textContent
+        audio.pause();
+        audio.currentTime = 0;
         this.resetGame();
     }
 
-    resetTimer() {
+    resetGame() {
+        new _cocktail__WEBPACK_IMPORTED_MODULE_2__.default().removeIngredients();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_2__.default().removeShakerLists();
+        new _order__WEBPACK_IMPORTED_MODULE_0__.default().resetTips();
+        new _order__WEBPACK_IMPORTED_MODULE_0__.default().removeOrder();
+        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
         this.stopTimer();
-        this.removeTimer();
-        this.generateTimer();
     }
 
     stopTimer() {
@@ -586,12 +616,10 @@ class Timer {
         timer.textContent = "10";
     }
 
-    resetGame() {
-        new _cocktail__WEBPACK_IMPORTED_MODULE_2__.default().removeIngredients();
-        new _cocktail__WEBPACK_IMPORTED_MODULE_2__.default().removeShakerLists();
-        new _order__WEBPACK_IMPORTED_MODULE_0__.default().resetResult();
-        new _order__WEBPACK_IMPORTED_MODULE_0__.default().removeOrder();
-        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
+    resetTimer() {
+        this.stopTimer();
+        this.removeTimer();
+        this.generateTimer();
     }
 
 }

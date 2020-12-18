@@ -3,7 +3,8 @@ import Customer from './customer';
 import Cocktail from './cocktail';
 
 class Timer {
-    constructor() {
+    constructor(name) {
+        this.name = name;
         this.time = null;
         this.countdown = this.countdown.bind(this);
     }
@@ -28,27 +29,29 @@ class Timer {
     }
 
     afterTimerReachesZero() {
-        const result = document.getElementById("result");
+        const tips = document.getElementById("tips");
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const timer = document.getElementById("timer");
         const audio = document.querySelector("audio");
 
-        timer.textContent = "60";
-        this.stopTimer();
+        timer.textContent = "45";
         closingModal.style.display = "block";
         banana.style.display = "none";
-        highscore.textContent = result.textContent
-        // audio.pause();
-        // audio.currentTime = 0;
+        highscore.textContent = tips.textContent
+        audio.pause();
+        audio.currentTime = 0;
         this.resetGame();
     }
 
-    resetTimer() {
+    resetGame() {
+        new Cocktail().removeIngredients();
+        new Cocktail().removeShakerLists();
+        new Order().resetTips();
+        new Order().removeOrder();
+        new Customer().removeCustomer();
         this.stopTimer();
-        this.removeTimer();
-        this.generateTimer();
     }
 
     stopTimer() {
@@ -60,12 +63,10 @@ class Timer {
         timer.textContent = "10";
     }
 
-    resetGame() {
-        new Cocktail().removeIngredients();
-        new Cocktail().removeShakerLists();
-        new Order().resetResult();
-        new Order().removeOrder();
-        new Customer().removeCustomer();
+    resetTimer() {
+        this.stopTimer();
+        this.removeTimer();
+        this.generateTimer();
     }
 
 }

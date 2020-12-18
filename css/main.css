@@ -21,7 +21,7 @@
     height: 680px; 
     width: 1200px;
     border-radius: 5px;
-    background-color: rgb(41, 39, 39);
+    background-color: black;
     margin-bottom: 40px;
     display: flex;
 }
@@ -38,7 +38,7 @@
 }
 
 .right-container {
-    border: 1px solid darkgray;
+    border: 1px solid white;
     width: 34%;
     height: 95%;
     margin-top: 1.5%;
@@ -48,14 +48,14 @@
 }
 
 .left-inner-container {
-    border: 1px solid darkgoldenrod;
     width: 70%;
     height: 95%;
     margin-top: 1.5%;
     margin-left: 2%;
-    background-color: rgb(133, 118, 153);
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    background-color: #5b3262;
+    box-shadow: 6px 6px;
+    /* background-color: rgb(133, 118, 153); */
+    border-radius: 8px;
     position: relative;
     z-index: 2
 }
@@ -84,8 +84,11 @@
 
 .remove-1 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 150px;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .cocktail-shaker-container {
@@ -263,14 +266,68 @@
     top: -2px;
 }
 
-#button:focus, #button3:focus {
+#button:focus,
+#button3:focus,
+#check:focus,
+#clear:focus {
     outline: none;
 }
 
 #cocktail-ingredients img:hover,
 #shaker-lists img:hover,
-#clear:hover  {
+#clear:hover,
+#check:hover  {
     cursor: pointer;
+}
+
+#check:hover {
+    top: -5px;
+    background-color: ;
+}
+
+#check {
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 4px;
+    color: white;
+    background-color: purple;
+    border: none;
+    font-family: inherit;
+    position: relative;
+}
+
+.shake {
+    margin-top: -20px;
+    margin-bottom: 18px;
+}
+
+#clear:hover {
+    animation-name: spiiiin;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+@keyframes spiiiin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+#clear {
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    border: none;
+    font-family: inherit;
+    position: relative;
 }
 
 .ingredient-box-image3:hover {
@@ -279,7 +336,7 @@
 
 .shaker-back {
     position: absolute;
-    right: 32.5%;
+    right: 32%;
     top: 34%;
 }
 

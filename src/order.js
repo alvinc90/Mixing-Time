@@ -2,6 +2,9 @@ import Customer from "./customer";
 import Timer from './timer';
 class Order {
     constructor() {
+        this.customer = new Customer();
+        this.Timer = new Timer();
+        this.checkForMatch();
 
         this.orderArr = [
             {
@@ -33,40 +36,53 @@ class Order {
         h2.textContent = `${randomOrder}`;
         order.appendChild(h2)
     }
-    
+
     checkRecipeMatch() {
-        let cocktailIdArr = [];
+        let cocktailId;
+ 
         const findOrder = document.getElementsByClassName("order")[0].textContent;
         this.orderArr.forEach((item, i) => {
-            if (item.cocktail === findOrder) {
-                cocktailIdArr.push(i);
-            }
+            if (item.cocktail === findOrder) cocktailId = i
         })
-        const recipeArr = this.orderArr[cocktailIdArr[0]].recipe;
+        
+        const recipeArr = this.orderArr[cocktailId].recipe;
+
         const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
         const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
         const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
 
-       if ( ( recipeArr.includes(shakerList1) && ( (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3) ) ) && 
-            ( recipeArr.includes(shakerList2) && ( (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3) ) ) && 
-            ( recipeArr.includes(shakerList3) && ( (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) ) )  ) {
-            alert("Good Job!");
-            this.clearList();
-            this.result();
-            this.removeOrder();
-            this.generateOrder();
-            new Customer().removeCustomer();
-            new Customer().generateCustomer();
-    
-            new Timer().resetTimer();
+        const noDupList1 = (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3);
+        const noDupList2 = (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3);
+        const noDupList3 = (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) 
+
+       if ( ( recipeArr.includes(shakerList1) && ( noDupList1 ) ) && 
+            ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
+            ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
+
+            this.correctDrinkRecipe();
             return true;
-        } 
+        }
         else {
            alert("Wrong Drink!")
-           this.strike();
+        //    this.strike();
            return false;
        }
-        
+    }
+
+    checkForMatch() {
+        const check = document.getElementById("check");
+        check.addEventListener("click", () => this.checkRecipeMatch());
+    }
+
+    correctDrinkRecipe() {
+        alert("Good Job!");
+        this.clearList();
+        this.tips();
+        this.removeOrder();
+        this.generateOrder();
+        this.customer.removeCustomer();
+        this.customer.generateCustomer();
+        // new Timer().resetTimer();
     }
 
     removeOrder() {
@@ -85,16 +101,16 @@ class Order {
         })
     }
 
-    result() {
-        const res = document.getElementById("result");
-        let resInt = parseInt(res.textContent);
-        resInt += 50;
-        res.textContent = resInt;
+    tips() {
+        const tips = document.getElementById("tips");
+        let tipsInt = parseInt(tips.textContent);
+        tipsInt += 50;
+        tips.textContent = tipsInt;
     }
 
-    resetResult() {
-        const res = document.getElementById("result");
-        res.textContent = "0";
+    resetTips() {
+        const tips = document.getElementById("tips");
+        tips.textContent = "0";
     }
 
     strike() {
@@ -109,18 +125,18 @@ class Order {
 
     gameOver() {
         const timer = document.getElementById("timer");
-        const result = document.getElementById("result");
+        const tips = document.getElementById("tips");
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const audio = document.querySelector("audio");
         
-        timer.textContent = "10";
+        timer.textContent = "45";
         closingModal.style.display = "block";
         banana.style.display = "none";
-        highscore.textContent = result.textContent
-        // audio.pause();
-        // audio.currentTime = 0;
+        highscore.textContent = tips.textContent
+        audio.pause();
+        audio.currentTime = 0;
         this.removeOrder();
         new Customer().removeCustomer();
         new Timer().stopTimer();

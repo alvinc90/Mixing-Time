@@ -4,34 +4,38 @@ import Order from './order';
 import Timer from './timer';
 class Game {
     constructor() {
+        this.cocktail = new Cocktail();
+        this.order = new Order();
+        this.customer = new Customer();
+        this.timer = new Timer();
         this.reset();
         this.start();
-        this.checkForMatch();
+        // this.checkForMatch = this.checkForMatch.bind(this);
     }
 
     reset() {
-        new Cocktail().removeIngredients();
-        new Cocktail().removeShakerLists();
-        new Order().resetResult();
-        new Order().removeOrder();
-        new Customer().removeCustomer();
+        this.cocktail.removeIngredients();
+        this.cocktail.removeShakerLists();
+        this.order.resetTips();
+        this.order.removeOrder();
+        this.customer.removeCustomer();
     }
 
     start() {
-        new Cocktail().generateIngredients();
-        new Cocktail().generateEmptylists();
-        new Cocktail().removeShakerIngredientButton();
-        new Cocktail().clearShakerListButton();
-        new Order().generateOrder();
-        new Customer().generateCustomer();
-        new Timer().generateTimer();
+        this.cocktail.generateIngredients();
+        this.cocktail.generateEmptylists();
+        this.cocktail.removeShakerIngredientButton();
+        this.cocktail.clearShakerListButton();
+        this.order.generateOrder();
+        this.customer.generateCustomer();
+        this.timer.generateTimer();
     }
 
 
-    checkForMatch() {
-        const check = document.getElementById("check");
-        check.addEventListener("click", () => new Order().checkRecipeMatch());
-    }
+    // checkForMatch() {
+    //     const check = document.getElementById("check");
+    //     check.addEventListener("click", () => this.order.checkRecipeMatch());
+    // }
 
 
 }

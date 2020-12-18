@@ -188,19 +188,19 @@ class Customer {
         this.customerArr = [
             {
                 name: "male_1",
-                url: "../images/customer/male_1.png"
+                url: "images/customer/male_1.png"
             },
             {
                 name: "male_2",
-                url: "../images/customer/male_2.png"
+                url: "images/customer/male_2.png"
             },
             {
                 name: "female_1",
-                url: "../images/customer/female_1.png"
+                url: "images/customer/female_1.png"
             },
             {
                 name: "female_2",
-                url: "../images/customer/female_2.png"
+                url: "images/customer/female_2.png"
             }
         ]
     }
@@ -255,9 +255,11 @@ class Game {
         this.reset();
         this.start();
         this.checkForMatch();
+        debugger
     }
 
     start() {
+        debugger
         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().generateIngredients();
         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().generateEmptylists();
         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().clearShakerList();
@@ -268,11 +270,13 @@ class Game {
     }
 
     checkForMatch() {
+        debugger
         const check = document.getElementById("check");
         check.addEventListener("click", () => new _order__WEBPACK_IMPORTED_MODULE_2__.default().checkRecipeMatch());
     }
 
     reset() {
+        debugger
          new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeIngredients();
          new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerLists();
          new _order__WEBPACK_IMPORTED_MODULE_2__.default().resetResult();
@@ -305,6 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const banana = document.getElementsByClassName("left-inner-container")[0];
     const restart = document.getElementById("button2");
     const start2 = document.getElementById("button3");
+    const audio = document.querySelector("audio");
     banana.style.display = "none";
 
     // start.addEventListener("mouseenter", () => {
@@ -319,11 +324,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // })
 
     start.addEventListener("click", () => {
-        const audio = document.querySelector("audio");
         modal.style.display = "none";
         banana.style.display = "block";
         new _game__WEBPACK_IMPORTED_MODULE_0__.default();
-        audio.play();
+        // audio.play();
     })
 
     start2.addEventListener("click", () => {
@@ -333,11 +337,11 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     restart.addEventListener("click", () => {
-        banana.style.display = "block";
+        debugger
         modal.style.display = "none";
+        banana.style.display = "block";
         closingModal.style.display = "none";
         new _game__WEBPACK_IMPORTED_MODULE_0__.default();
-        const audio = document.querySelector("audio");
         // audio.play();
     })
 })
@@ -368,6 +372,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
+/* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./timer */ "./src/timer.js");
+
 
 class Order {
     constructor() {
@@ -417,16 +423,20 @@ class Order {
         const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
 
        if ( (recipeArr.includes(shakerList1)) && (recipeArr.includes(shakerList2)) && (recipeArr.includes(shakerList3)) ) {
-            alert("you win!");
+           debugger
+            alert("Good Job!");
             this.clearList();
             this.result();
-            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
-            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().generateCustomer();
+            // new Timer().resetTimer();
             this.removeOrder();
             this.generateOrder();
+            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
+            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().generateCustomer();
             return true;
        } else {
-           alert("try again!")
+           debugger
+           alert("Wrong Drink!")
+           this.strike();
            return false;
        }
         
@@ -457,6 +467,37 @@ class Order {
         const res = document.getElementById("result");
         res.textContent = "0";
     }
+
+    strike() {
+        const strikes = document.getElementsByClassName("strikes");
+        const lastStrike = strikes.length - 1;
+        if (strikes.length === 1) {
+            this.gameOver();
+        } else {
+            strikes[lastStrike].remove();
+        }
+    }
+
+    gameOver() {
+        const timer = document.getElementById("timer");
+        const result = document.getElementById("result");
+        const highscore = document.getElementById("highscore");
+        const closingModal = document.getElementById("closing-modal");
+        const banana = document.getElementsByClassName("left-inner-container")[0];
+        const audio = document.querySelector("audio");
+        
+        timer.textContent = "10";
+        closingModal.style.display = "block";
+        banana.style.display = "none";
+        highscore.textContent = result.textContent
+        // audio.pause();
+        // audio.currentTime = 0;
+        this.removeOrder();
+        new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
+        new _timer__WEBPACK_IMPORTED_MODULE_1__.default().stopTimer();
+    }
+
+
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
@@ -522,6 +563,9 @@ class Timer {
     }
     
     generateTimer() {
+        if (this.time) {
+            clearInterval(this.time);
+        }
         this.time = setInterval(this.countdown, 1000);
     }
     
@@ -542,17 +586,25 @@ class Timer {
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
+        const timer = document.getElementById("timer");
         
-        timer.textContent = "45";
+        timer.textContent = "60";
         this.stopTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         highscore.textContent = result.textContent
         const audio = document.querySelector("audio");
-        audio.pause();
-        audio.currentTime = 0;
+        // audio.pause();
+        // audio.currentTime = 0;
         new _order__WEBPACK_IMPORTED_MODULE_0__.default().removeOrder();
         new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
+        debugger
+    }
+
+    resetTimer() {
+        this.stopTimer();
+        this.removeTimer();
+        this.generateTimer();
     }
 
     stopTimer() {
@@ -561,7 +613,7 @@ class Timer {
 
     removeTimer() {
         const timer = document.getElementById("timer");
-        timer.textContent = "n/a";
+        timer.textContent = "10";
     }
 
 }

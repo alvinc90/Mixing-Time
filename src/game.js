@@ -8,9 +8,11 @@ class Game {
         this.reset();
         this.start();
         this.checkForMatch();
+        debugger
     }
 
     start() {
+        debugger
         new Cocktail().generateIngredients();
         new Cocktail().generateEmptylists();
         new Cocktail().clearShakerList();
@@ -21,11 +23,13 @@ class Game {
     }
 
     checkForMatch() {
+        debugger
         const check = document.getElementById("check");
         check.addEventListener("click", () => new Order().checkRecipeMatch());
     }
 
     reset() {
+        debugger
          new Cocktail().removeIngredients();
          new Cocktail().removeShakerLists();
          new Order().resetResult();

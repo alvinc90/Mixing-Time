@@ -1,4 +1,5 @@
 import Customer from "./customer";
+import Timer from './timer';
 class Order {
     constructor() {
 
@@ -47,16 +48,20 @@ class Order {
         const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
 
        if ( (recipeArr.includes(shakerList1)) && (recipeArr.includes(shakerList2)) && (recipeArr.includes(shakerList3)) ) {
-            alert("you win!");
+           debugger
+            alert("Good Job!");
             this.clearList();
             this.result();
-            new Customer().removeCustomer();
-            new Customer().generateCustomer();
+            // new Timer().resetTimer();
             this.removeOrder();
             this.generateOrder();
+            new Customer().removeCustomer();
+            new Customer().generateCustomer();
             return true;
        } else {
-           alert("try again!")
+           debugger
+           alert("Wrong Drink!")
+           this.strike();
            return false;
        }
         
@@ -87,6 +92,37 @@ class Order {
         const res = document.getElementById("result");
         res.textContent = "0";
     }
+
+    strike() {
+        const strikes = document.getElementsByClassName("strikes");
+        const lastStrike = strikes.length - 1;
+        if (strikes.length === 1) {
+            this.gameOver();
+        } else {
+            strikes[lastStrike].remove();
+        }
+    }
+
+    gameOver() {
+        const timer = document.getElementById("timer");
+        const result = document.getElementById("result");
+        const highscore = document.getElementById("highscore");
+        const closingModal = document.getElementById("closing-modal");
+        const banana = document.getElementsByClassName("left-inner-container")[0];
+        const audio = document.querySelector("audio");
+        
+        timer.textContent = "10";
+        closingModal.style.display = "block";
+        banana.style.display = "none";
+        highscore.textContent = result.textContent
+        // audio.pause();
+        // audio.currentTime = 0;
+        this.removeOrder();
+        new Customer().removeCustomer();
+        new Timer().stopTimer();
+    }
+
+
 };
 
 export default Order;

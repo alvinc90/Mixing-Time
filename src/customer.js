@@ -4,19 +4,19 @@ class Customer {
         this.customerArr = [
             {
                 name: "male_1",
-                url: "../images/customer/male_1.png"
+                url: "images/customer/male_1.png"
             },
             {
                 name: "male_2",
-                url: "../images/customer/male_2.png"
+                url: "images/customer/male_2.png"
             },
             {
                 name: "female_1",
-                url: "../images/customer/female_1.png"
+                url: "images/customer/female_1.png"
             },
             {
                 name: "female_2",
-                url: "../images/customer/female_2.png"
+                url: "images/customer/female_2.png"
             }
         ]
     }

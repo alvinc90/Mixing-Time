@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const banana = document.getElementsByClassName("left-inner-container")[0];
     const restart = document.getElementById("button2");
     const start2 = document.getElementById("button3");
+    const audio = document.querySelector("audio");
     banana.style.display = "none";
 
     // start.addEventListener("mouseenter", () => {
@@ -22,11 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // })
 
     start.addEventListener("click", () => {
-        const audio = document.querySelector("audio");
         modal.style.display = "none";
         banana.style.display = "block";
         new Game();
-        audio.play();
+        // audio.play();
     })
 
     start2.addEventListener("click", () => {
@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     restart.addEventListener("click", () => {
-        banana.style.display = "block";
+        debugger
         modal.style.display = "none";
+        banana.style.display = "block";
         closingModal.style.display = "none";
         new Game();
-        const audio = document.querySelector("audio");
         // audio.play();
     })
 })

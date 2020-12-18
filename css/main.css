@@ -316,7 +316,7 @@
     padding-left: 45px;
 }
 
-.danger, .warning, .good {
+.strikes {
     font-family: 'Space Grotesk', sans-serif;
     color: green;
     font-size: 30px;

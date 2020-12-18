@@ -8,6 +8,9 @@ class Timer {
     }
     
     generateTimer() {
+        if (this.time) {
+            clearInterval(this.time);
+        }
         this.time = setInterval(this.countdown, 1000);
     }
     
@@ -28,17 +31,25 @@ class Timer {
         const highscore = document.getElementById("highscore");
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
+        const timer = document.getElementById("timer");
         
-        timer.textContent = "45";
+        timer.textContent = "60";
         this.stopTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         highscore.textContent = result.textContent
         const audio = document.querySelector("audio");
-        audio.pause();
-        audio.currentTime = 0;
+        // audio.pause();
+        // audio.currentTime = 0;
         new Order().removeOrder();
         new Customer().removeCustomer();
+        debugger
+    }
+
+    resetTimer() {
+        this.stopTimer();
+        this.removeTimer();
+        this.generateTimer();
     }
 
     stopTimer() {
@@ -47,7 +58,7 @@ class Timer {
 
     removeTimer() {
         const timer = document.getElementById("timer");
-        timer.textContent = "n/a";
+        timer.textContent = "10";
     }
 
 }

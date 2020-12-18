@@ -33,7 +33,9 @@ class Customer {
     removeCustomer() {
         const h1 = document.getElementById("customer");
         const img = document.querySelector("#customer > img");
-        h1.removeChild(img);
+        if (img) {
+            h1.removeChild(img);
+        }
     }
 
 };

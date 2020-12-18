@@ -35,6 +35,7 @@ class Order {
     }
     
     checkRecipeMatch() {
+        debugger
         let cocktailIdArr = [];
         const findOrder = document.getElementsByClassName("order")[0].textContent;
         this.orderArr.forEach((item, i) => {
@@ -46,38 +47,46 @@ class Order {
         const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
         const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
         const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
-
-       if ( (recipeArr.includes(shakerList1)) && (recipeArr.includes(shakerList2)) && (recipeArr.includes(shakerList3)) ) {
-           debugger
-            alert("Good Job!");
-            this.clearList();
-            this.result();
+        debugger
+       if ( ( recipeArr.includes(shakerList1) && ( (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3) ) ) && 
+            ( recipeArr.includes(shakerList2) && ( (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3) ) ) && 
+            ( recipeArr.includes(shakerList3) && ( (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) ) )  ) {
+            // alert("Good Job!");
+            // this.clearList();
+            // this.result();
+            // this.removeOrder();
+            // this.generateOrder();
+            // new Customer().removeCustomer();
+            // new Customer().generateCustomer();
+            console.log("angela pussy was sweet");
             // new Timer().resetTimer();
-            this.removeOrder();
-            this.generateOrder();
-            new Customer().removeCustomer();
-            new Customer().generateCustomer();
+            debugger
             return true;
-       } else {
+        } 
+        // else if ( shakerList1 === "your mama pussy so tight")  {
+        else {
            debugger
-           alert("Wrong Drink!")
-           this.strike();
-           return false;
+           console.log("stephanie pussy was the best");
+        //    alert("Wrong Drink!")
+        //    this.strike();
+        //    return false;
        }
         
     }
 
     removeOrder() {
         const h2 = document.querySelector("#order > h2");
-        const h1 = document.getElementById("order");
-        h1.removeChild(h2);
+        if(h2) {
+            const h1 = document.getElementById("order");
+            h1.removeChild(h2);
+        }
     }
 
     clearList() {
         const imgs = document.querySelectorAll("#shaker-lists img");
         imgs.forEach((img) => {
             img.textContent = "none"
-            img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
+            img.setAttribute("src", "images/bar_ingredients/blank.jpg")
         })
     }
 

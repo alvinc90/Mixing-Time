@@ -1,5 +1,6 @@
 import Order from './order';
 import Customer from './customer';
+import Cocktail from './cocktail';
 
 class Timer {
     constructor() {
@@ -32,18 +33,16 @@ class Timer {
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const timer = document.getElementById("timer");
-        
+        const audio = document.querySelector("audio");
+
         timer.textContent = "60";
         this.stopTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         highscore.textContent = result.textContent
-        const audio = document.querySelector("audio");
         // audio.pause();
         // audio.currentTime = 0;
-        new Order().removeOrder();
-        new Customer().removeCustomer();
-        debugger
+        this.resetGame();
     }
 
     resetTimer() {
@@ -59,6 +58,14 @@ class Timer {
     removeTimer() {
         const timer = document.getElementById("timer");
         timer.textContent = "10";
+    }
+
+    resetGame() {
+        new Cocktail().removeIngredients();
+        new Cocktail().removeShakerLists();
+        new Order().resetResult();
+        new Order().removeOrder();
+        new Customer().removeCustomer();
     }
 
 }

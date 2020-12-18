@@ -35,8 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         new Game();
     })
 
-    restart.addEventListener("click", () => {
-        debugger
+    restart.addEventListener("click", () => {        
         modal.style.display = "none";
         banana.style.display = "block";
         closingModal.style.display = "none";

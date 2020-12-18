@@ -123,7 +123,7 @@ class Cocktail {
             const ul = document.getElementById("shaker-lists");
             const li = document.createElement("li");
             const img = document.createElement("img");
-            img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
+            img.setAttribute("src", "images/bar_ingredients/blank.jpg")
             img.textContent = "none";
             img.classList.add("ingredient-box-image")
             li.textContent = emp
@@ -141,23 +141,23 @@ class Cocktail {
         })
     }
 
-    clearShakerList() {
+    clearShakerListButton() {
         const clear = document.getElementById("clear");
         clear.addEventListener("click", () => {
             const imgs = document.querySelectorAll("#shaker-lists img");
             imgs.forEach((img) => {
                 img.textContent = "none"
-                img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
+                img.setAttribute("src", "images/bar_ingredients/blank.jpg")
             })
         })
     }
 
-    removeShakerList() {
+    removeShakerIngredientButton() {
        const imgs = document.querySelectorAll("#shaker-lists img");
        imgs.forEach((img) => {
            img.addEventListener("click", () => {
                img.textContent = "none";
-               img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
+               img.setAttribute("src", "images/bar_ingredients/blank.jpg")
            })
        })
     }
@@ -217,7 +217,9 @@ class Customer {
     removeCustomer() {
         const h1 = document.getElementById("customer");
         const img = document.querySelector("#customer > img");
-        h1.removeChild(img);
+        if (img) {
+            h1.removeChild(img);
+        }
     }
 
 };
@@ -244,8 +246,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
 /* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./order */ "./src/order.js");
 /* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./timer */ "./src/timer.js");
-/* harmony import */ var _sound__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sound */ "./src/sound.js");
-
 
 
 
@@ -255,32 +255,33 @@ class Game {
         this.reset();
         this.start();
         this.checkForMatch();
-        debugger
+    }
+
+    reset() {
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeIngredients();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerLists();
+        new _order__WEBPACK_IMPORTED_MODULE_2__.default().resetResult();
+        new _order__WEBPACK_IMPORTED_MODULE_2__.default().removeOrder();
+        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
     }
 
     start() {
-        debugger
         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().generateIngredients();
         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().generateEmptylists();
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().clearShakerList();
-        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerList();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerIngredientButton();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().clearShakerListButton();
         new _order__WEBPACK_IMPORTED_MODULE_2__.default().generateOrder();
         new _customer__WEBPACK_IMPORTED_MODULE_1__.default().generateCustomer();
         new _timer__WEBPACK_IMPORTED_MODULE_3__.default().generateTimer();
     }
 
+
     checkForMatch() {
-        debugger
         const check = document.getElementById("check");
+        debugger
         check.addEventListener("click", () => new _order__WEBPACK_IMPORTED_MODULE_2__.default().checkRecipeMatch());
     }
 
-    reset() {
-        debugger
-         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeIngredients();
-         new _cocktail__WEBPACK_IMPORTED_MODULE_0__.default().removeShakerLists();
-         new _order__WEBPACK_IMPORTED_MODULE_2__.default().resetResult();
-    }
 
 }
 
@@ -336,8 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
         new _game__WEBPACK_IMPORTED_MODULE_0__.default();
     })
 
-    restart.addEventListener("click", () => {
-        debugger
+    restart.addEventListener("click", () => {        
         modal.style.display = "none";
         banana.style.display = "block";
         closingModal.style.display = "none";
@@ -410,6 +410,7 @@ class Order {
     }
     
     checkRecipeMatch() {
+        debugger
         let cocktailIdArr = [];
         const findOrder = document.getElementsByClassName("order")[0].textContent;
         this.orderArr.forEach((item, i) => {
@@ -421,38 +422,46 @@ class Order {
         const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
         const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
         const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
-
-       if ( (recipeArr.includes(shakerList1)) && (recipeArr.includes(shakerList2)) && (recipeArr.includes(shakerList3)) ) {
-           debugger
-            alert("Good Job!");
-            this.clearList();
-            this.result();
+        debugger
+       if ( ( recipeArr.includes(shakerList1) && ( (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3) ) ) && 
+            ( recipeArr.includes(shakerList2) && ( (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3) ) ) && 
+            ( recipeArr.includes(shakerList3) && ( (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) ) )  ) {
+            // alert("Good Job!");
+            // this.clearList();
+            // this.result();
+            // this.removeOrder();
+            // this.generateOrder();
+            // new Customer().removeCustomer();
+            // new Customer().generateCustomer();
+            console.log("angela pussy was sweet");
             // new Timer().resetTimer();
-            this.removeOrder();
-            this.generateOrder();
-            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().removeCustomer();
-            new _customer__WEBPACK_IMPORTED_MODULE_0__.default().generateCustomer();
+            debugger
             return true;
-       } else {
+        } 
+        // else if ( shakerList1 === "your mama pussy so tight")  {
+        else {
            debugger
-           alert("Wrong Drink!")
-           this.strike();
-           return false;
+           console.log("stephanie pussy was the best");
+        //    alert("Wrong Drink!")
+        //    this.strike();
+        //    return false;
        }
         
     }
 
     removeOrder() {
         const h2 = document.querySelector("#order > h2");
-        const h1 = document.getElementById("order");
-        h1.removeChild(h2);
+        if(h2) {
+            const h1 = document.getElementById("order");
+            h1.removeChild(h2);
+        }
     }
 
     clearList() {
         const imgs = document.querySelectorAll("#shaker-lists img");
         imgs.forEach((img) => {
             img.textContent = "none"
-            img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
+            img.setAttribute("src", "images/bar_ingredients/blank.jpg")
         })
     }
 
@@ -504,39 +513,6 @@ class Order {
 
 /***/ }),
 
-/***/ "./src/sound.js":
-/*!**********************!*\
-  !*** ./src/sound.js ***!
-  \**********************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-function sound(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
-  }
-  this.stop = function(){
-    this.sound.pause();
-  }
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sound);
-
-/***/ }),
-
 /***/ "./src/timer.js":
 /*!**********************!*\
   !*** ./src/timer.js ***!
@@ -553,6 +529,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./order */ "./src/order.js");
 /* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
+/* harmony import */ var _cocktail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cocktail */ "./src/cocktail.js");
+
 
 
 
@@ -587,18 +565,16 @@ class Timer {
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const timer = document.getElementById("timer");
-        
+        const audio = document.querySelector("audio");
+
         timer.textContent = "60";
         this.stopTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         highscore.textContent = result.textContent
-        const audio = document.querySelector("audio");
         // audio.pause();
         // audio.currentTime = 0;
-        new _order__WEBPACK_IMPORTED_MODULE_0__.default().removeOrder();
-        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
-        debugger
+        this.resetGame();
     }
 
     resetTimer() {
@@ -614,6 +590,14 @@ class Timer {
     removeTimer() {
         const timer = document.getElementById("timer");
         timer.textContent = "10";
+    }
+
+    resetGame() {
+        new _cocktail__WEBPACK_IMPORTED_MODULE_2__.default().removeIngredients();
+        new _cocktail__WEBPACK_IMPORTED_MODULE_2__.default().removeShakerLists();
+        new _order__WEBPACK_IMPORTED_MODULE_0__.default().resetResult();
+        new _order__WEBPACK_IMPORTED_MODULE_0__.default().removeOrder();
+        new _customer__WEBPACK_IMPORTED_MODULE_1__.default().removeCustomer();
     }
 
 }

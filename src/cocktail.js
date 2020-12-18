@@ -105,7 +105,7 @@ class Cocktail {
             const ul = document.getElementById("shaker-lists");
             const li = document.createElement("li");
             const img = document.createElement("img");
-            img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
+            img.setAttribute("src", "images/bar_ingredients/blank.jpg")
             img.textContent = "none";
             img.classList.add("ingredient-box-image")
             li.textContent = emp
@@ -123,23 +123,23 @@ class Cocktail {
         })
     }
 
-    clearShakerList() {
+    clearShakerListButton() {
         const clear = document.getElementById("clear");
         clear.addEventListener("click", () => {
             const imgs = document.querySelectorAll("#shaker-lists img");
             imgs.forEach((img) => {
                 img.textContent = "none"
-                img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
+                img.setAttribute("src", "images/bar_ingredients/blank.jpg")
             })
         })
     }
 
-    removeShakerList() {
+    removeShakerIngredientButton() {
        const imgs = document.querySelectorAll("#shaker-lists img");
        imgs.forEach((img) => {
            img.addEventListener("click", () => {
                img.textContent = "none";
-               img.setAttribute("src", "../images/bar_ingredients/blank.jpg")
+               img.setAttribute("src", "images/bar_ingredients/blank.jpg")
            })
        })
     }

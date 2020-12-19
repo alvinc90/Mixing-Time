@@ -151,10 +151,16 @@
     left: 130px; */
 }
 
+.timer-text, .tips-text, .strike-text {
+    color: rgb(182, 191, 192);
+    font-size: 35px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 .timer {
     color: white;
     font-size: 50px;
-    margin: 70px 20px;
+    padding-left: 30px;
 }
 
 .outer-modal {
@@ -370,24 +376,41 @@
     top: 34%;
 }
 
-.time-score-container, .customer-order-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.score-container {
+.score, .tips {
     color: white;
     font-size: 40px;
-    margin: 70px 20px;
+}
+
+.score {
+    padding-left: 54px;
+}
+
+.time-score-container, .customer-order-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.customer-order-container {
+    margin-top: 25px;
+}
+
+
+.score-container {
+    /* color: white; */
+    /* font-size: 40px; */
     font-family: 'Space Grotesk', sans-serif;
     /* border: 1px solid hotpink; */
-    width: 100px;
-    padding-left: 45px;
+    width: 240px;
+    margin-bottom: 10px;
 }
 
 .timer-container {
-    width: 100px;
+    width: 240px;
     /* border: 1px solid hotpink; */
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 10px;
 }
 
 .img-modal {
@@ -396,12 +419,18 @@
     height: 80px;
 }
 
+#strike-container {
+    width: 240px;
+    padding-left: 5px;
+}
+
 .performance-container {
-    width: 100px;
+    width: 300px;
     height: 50px;
     /* border: 1px solid hotpink; */
-    margin-top: 70px;
-    padding-left: 45px;
+    font-family: 'Space Grotesk', sans-serif;
+    /* color: white; */
+    /* font-size: 40px; */
 }
 
 .strikes {

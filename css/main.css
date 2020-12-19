@@ -253,6 +253,17 @@
     font-family: inherit;
 }
 
+.modal-instruction2 {
+    color: purple;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-family: inherit;
+    overflow: scroll;
+}
+
 #button5 {
     font-size: 40px;
     width: 250px;

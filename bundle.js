@@ -258,6 +258,8 @@ class Game {
         // this.reset();
         // this.start();
         this.checkForMatch();
+        this.openInstructionModal();
+        this.closeInstructionModal();
     }
 
     reset() {
@@ -285,7 +287,29 @@ class Game {
         check.addEventListener("click", () => this.timer.checkRecipeMatch());
     }
 
-    
+    openInstructionModal() {
+        const button = document.getElementById("button6");
+        button.addEventListener("click", () => {
+            const instructionModal = document.getElementById("instruction-modal");
+            const banana = document.getElementsByClassName("left-inner-container")[0];
+            instructionModal.style.display = "block";
+            banana.style.display = "none";
+            this.timer.stopTimer();
+        })
+    }
+
+    closeInstructionModal() {
+        const button = document.getElementById("button5");
+        button.addEventListener("click", () => {
+            const instructionModal = document.getElementById("instruction-modal");
+            const banana = document.getElementsByClassName("left-inner-container")[0];
+            instructionModal.style.display = "none";
+            banana.style.display = "block";
+            this.timer.generateTimer();
+        })
+    }
+
+
 
 
 }
@@ -512,12 +536,16 @@ class Order {
         })
     }
 
-    tips() {
-        const tips = document.getElementById("tips");
-        let tipsInt = parseInt(tips.textContent);
-        tipsInt += 50;
-        tips.textContent = tipsInt;
-    }
+    // tips() {
+    //     const tips = document.getElementById("tips");
+    //     let tipsInt = parseInt(tips.textContent);
+    //     if (tipsInt >= 500) {
+
+    //     } else {
+    //         tipsInt += 50;
+    //     }
+    //     tips.textContent = tipsInt;
+    // }
 
     resetTips() {
         const tips = document.getElementById("tips");
@@ -677,7 +705,7 @@ class Timer {
 
     resetInitialTimer() {
         const timer = document.getElementById("timer");
-        timer.textContent = "10";
+        timer.textContent = "12";
     }
 
     resetTimer() {
@@ -705,7 +733,12 @@ class Timer {
         this.resetInitialTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
-        highscore.textContent = tips.textContent
+        let intHighscore = parseInt(tips.textContent);
+        if (intHighscore >= 450) {
+            highscore.textContent = 500
+        } else {
+            highscore.textContent = tips.textContent
+        }
         audio.pause();
         audio.currentTime = 0;
         new _order__WEBPACK_IMPORTED_MODULE_2__.default().removeOrder();
@@ -775,15 +808,27 @@ class Timer {
        }
     }
 
+    tips() {
+        const tips = document.getElementById("tips");
+        let tipsInt = parseInt(tips.textContent);
+        if (tipsInt >= 449) {
+            this.gameOver();
+        } else {
+            tipsInt += 50;
+        }
+        tips.textContent = tipsInt;
+    }
+
     correctDrinkRecipe() {
         new _order__WEBPACK_IMPORTED_MODULE_2__.default().clearList();
-        new _order__WEBPACK_IMPORTED_MODULE_2__.default().tips();
         new _order__WEBPACK_IMPORTED_MODULE_2__.default().removeOrder();
         new _order__WEBPACK_IMPORTED_MODULE_2__.default().generateOrder();
         this.customer.removeCustomer();
         this.customer.generateCustomer();
+        this.tips();
         this.resetTimer();
     }
+
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Timer);

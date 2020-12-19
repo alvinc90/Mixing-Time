@@ -60,7 +60,7 @@ class Timer {
 
     resetInitialTimer() {
         const timer = document.getElementById("timer");
-        timer.textContent = "10";
+        timer.textContent = "12";
     }
 
     resetTimer() {
@@ -88,7 +88,12 @@ class Timer {
         this.resetInitialTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
-        highscore.textContent = tips.textContent
+        let intHighscore = parseInt(tips.textContent);
+        if (intHighscore >= 450) {
+            highscore.textContent = 500
+        } else {
+            highscore.textContent = tips.textContent
+        }
         audio.pause();
         audio.currentTime = 0;
         new Order().removeOrder();
@@ -158,15 +163,27 @@ class Timer {
        }
     }
 
+    tips() {
+        const tips = document.getElementById("tips");
+        let tipsInt = parseInt(tips.textContent);
+        if (tipsInt >= 449) {
+            this.gameOver();
+        } else {
+            tipsInt += 50;
+        }
+        tips.textContent = tipsInt;
+    }
+
     correctDrinkRecipe() {
         new Order().clearList();
-        new Order().tips();
         new Order().removeOrder();
         new Order().generateOrder();
         this.customer.removeCustomer();
         this.customer.generateCustomer();
+        this.tips();
         this.resetTimer();
     }
+
 }
 
 export default Timer;

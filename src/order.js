@@ -112,12 +112,16 @@ class Order {
         })
     }
 
-    tips() {
-        const tips = document.getElementById("tips");
-        let tipsInt = parseInt(tips.textContent);
-        tipsInt += 50;
-        tips.textContent = tipsInt;
-    }
+    // tips() {
+    //     const tips = document.getElementById("tips");
+    //     let tipsInt = parseInt(tips.textContent);
+    //     if (tipsInt >= 500) {
+
+    //     } else {
+    //         tipsInt += 50;
+    //     }
+    //     tips.textContent = tipsInt;
+    // }
 
     resetTips() {
         const tips = document.getElementById("tips");

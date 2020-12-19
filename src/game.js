@@ -11,6 +11,8 @@ class Game {
         // this.reset();
         // this.start();
         this.checkForMatch();
+        this.openInstructionModal();
+        this.closeInstructionModal();
     }
 
     reset() {
@@ -38,7 +40,29 @@ class Game {
         check.addEventListener("click", () => this.timer.checkRecipeMatch());
     }
 
-    
+    openInstructionModal() {
+        const button = document.getElementById("button6");
+        button.addEventListener("click", () => {
+            const instructionModal = document.getElementById("instruction-modal");
+            const banana = document.getElementsByClassName("left-inner-container")[0];
+            instructionModal.style.display = "block";
+            banana.style.display = "none";
+            this.timer.stopTimer();
+        })
+    }
+
+    closeInstructionModal() {
+        const button = document.getElementById("button5");
+        button.addEventListener("click", () => {
+            const instructionModal = document.getElementById("instruction-modal");
+            const banana = document.getElementsByClassName("left-inner-container")[0];
+            instructionModal.style.display = "none";
+            banana.style.display = "block";
+            this.timer.generateTimer();
+        })
+    }
+
+
 
 
 }

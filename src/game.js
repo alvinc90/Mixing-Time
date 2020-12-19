@@ -38,6 +38,8 @@ class Game {
         check.addEventListener("click", () => this.timer.checkRecipeMatch());
     }
 
+    
+
 
 }
 

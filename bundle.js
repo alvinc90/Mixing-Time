@@ -303,7 +303,9 @@ class Game {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game */ "./src/game.js");
+/* harmony import */ var _sound__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sound */ "./src/sound.js");
 console.log("Webpack is working!")
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -313,6 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const banana = document.getElementsByClassName("left-inner-container")[0];
     const restart = document.getElementById("button2");
     const start2 = document.getElementById("button3");
+    const restart2 = document.getElementById("button4");
     const audio = document.querySelector("audio");
     banana.style.display = "none";
     let game1 = new _game__WEBPACK_IMPORTED_MODULE_0__.default();
@@ -324,7 +327,6 @@ document.addEventListener("DOMContentLoaded", () => {
         banana.style.display = "block";
         game1.reset();
         game1.start();
-        // new Game();
         audio.play();
     })
 
@@ -343,11 +345,28 @@ document.addEventListener("DOMContentLoaded", () => {
         closingModal.style.display = "none";
         game1.reset();
         game1.start();
-        // new Game();
-        // game2.reset();
-        // game2.start();
-        // audio.play();
+        audio.play();
     })
+
+    //restart with no music
+    restart2.addEventListener("click", () => {        
+        modal.style.display = "none";
+        banana.style.display = "block";
+        closingModal.style.display = "none";
+        game1.reset();
+        game1.start();
+    })
+
+    // start.addEventListener("mouseenter", () => {
+    //     const audio = document.querySelector("audio");
+    //     audio.play();
+    // })
+
+    // start.addEventListener("mouseleave", () => {
+    //     const audio = document.querySelector("audio");
+    //     audio.pause();
+    //     audio.currentTime = 0;
+    // })
 })
 
 const sayHi = (name) => {
@@ -357,17 +376,6 @@ const sayHi = (name) => {
     
 };
 sayHi("R2D2");
-
-// start.addEventListener("mouseenter", () => {
-    //     const audio = document.querySelector("audio");
-    //     audio.play();
-    // })
-
-    // start.addEventListener("mouseleave", () => {
-    //     const audio = document.querySelector("audio");
-    //     audio.pause();
-    //     audio.currentTime = 0; aa
-    // })
 
 
 /***/ }),
@@ -544,6 +552,47 @@ class Order {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
+
+/***/ }),
+
+/***/ "./src/sound.js":
+/*!**********************!*\
+  !*** ./src/sound.js ***!
+  \**********************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+class Sound {
+  constructor() {
+  }
+
+  play() {
+    const audio = document.querySelector("audio");
+    const source = document.createElement("source");
+    source.setAttribute("src", "./audio/Allume-Cockney.mp3");
+    source.setAttribute("type", "audio/mp3");
+    audio.appendChild(source);
+    audio.play();
+  }
+
+  stop() {
+    const audio = document.querySelector("audio");
+    const source = document.createElement("source");
+    source.setAttribute("src", "./audio/Allume-Cockney.mp3");
+    source.setAttribute("type", "audio/mp3");
+    audio.appendChild(source);
+    audio.pause();
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sound);
 
 /***/ }),
 

@@ -173,7 +173,7 @@
 }
 
 .inner-modal {
-    background-color: whitesmoke;
+    background-color: white;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -194,14 +194,15 @@
     overflow: auto;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.85);
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .inner-modal2 {
-    background-color: lightgray;
+    background-color: whitesmoke;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
+    width: 45%;
     height: 400px;
     border-radius: 10px;
 }
@@ -226,7 +227,7 @@
     font-family: inherit;
 }
 
-#button {
+#button, #button2 {
     width: 250px;
     height: 70px;
     font-size: 20px;
@@ -238,7 +239,7 @@
     position: relative;
 }
 
-#button3 {
+#button3, #button4 {
     width: 250px;
     height: 70px;
     font-size: 20px;
@@ -258,7 +259,32 @@
     margin-top: 25px;
 }
 
-#button:hover, #button3:hover {
+.button-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.links-container {
+    display: flex;
+    justify-content: center;
+}
+
+.img-box {
+    margin-top: 48px;
+}
+
+.img-box2 {
+    margin-top: 48px;
+    margin-left: 15px;
+}
+
+.links-container:nth-child(2) {
+    margin-left: 10px;
+}
+
+#button:hover, #button3:hover, #button2:hover, #button4:hover {
     cursor: pointer;
     filter: brightness(105%);
     /* background-color: purple;
@@ -269,14 +295,18 @@
 #button:focus,
 #button3:focus,
 #check:focus,
-#clear:focus {
+#clear:focus,
+#button2:focus,
+#button4:focus {
     outline: none;
 }
 
 #cocktail-ingredients img:hover,
 #shaker-lists img:hover,
 #clear:hover,
-#check:hover  {
+#check:hover ,
+#button2:hover,
+#button4:hover {
     cursor: pointer;
 }
 
@@ -361,8 +391,9 @@
 }
 
 .img-modal {
-    width: 100px;
-    height: 100px;
+    margin-top: 25px;
+    width: 80px;
+    height: 80px;
 }
 
 .performance-container {
@@ -423,4 +454,8 @@ footer {
     text-align: center;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 20px;
+}
+
+.closing-modal-content-container {
+    padding-top: 30px;
 }

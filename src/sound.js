@@ -1,16 +1,24 @@
-function sound(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
+class Sound {
+  constructor() {
   }
-  this.stop = function(){
-    this.sound.pause();
+
+  play() {
+    const audio = document.querySelector("audio");
+    const source = document.createElement("source");
+    source.setAttribute("src", "./audio/Allume-Cockney.mp3");
+    source.setAttribute("type", "audio/mp3");
+    audio.appendChild(source);
+    audio.play();
+  }
+
+  stop() {
+    const audio = document.querySelector("audio");
+    const source = document.createElement("source");
+    source.setAttribute("src", "./audio/Allume-Cockney.mp3");
+    source.setAttribute("type", "audio/mp3");
+    audio.appendChild(source);
+    audio.pause();
   }
 }
 
-export default sound;
+export default Sound;

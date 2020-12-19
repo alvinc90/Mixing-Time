@@ -19,6 +19,7 @@ class Game {
         this.order.resetTips();
         this.order.removeOrder();
         this.customer.removeCustomer();
+        this.order.removeStrikes();
     }
 
     start() {
@@ -29,8 +30,8 @@ class Game {
         this.order.generateOrder();
         this.customer.generateCustomer();
         this.timer.generateTimer();
+        this.order.generateStrikes();
     }
-
 
     checkForMatch() {
         const check = document.getElementById("check");

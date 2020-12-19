@@ -36,6 +36,24 @@ class Order {
         order.appendChild(h2)
     }
 
+    generateStrikes() {
+        const strikeArr = ["/", "/", "/"]
+        strikeArr.forEach((strike) => {
+            const div = document.getElementById("strike-container");
+            const span = document.createElement("span");
+            span.textContent = strike;
+            span.classList.add("strikes");
+            div.appendChild(span)
+        })
+    }
+
+    removeStrikes() {
+        const strikes = document.querySelectorAll("#strike-container span");
+        strikes.forEach((strike) => {
+            strike.remove();
+        })
+    }
+
     // checkRecipeMatch() {
     //     let cocktailId;
  

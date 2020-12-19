@@ -266,6 +266,7 @@ class Game {
         this.order.resetTips();
         this.order.removeOrder();
         this.customer.removeCustomer();
+        this.order.removeStrikes();
     }
 
     start() {
@@ -276,8 +277,8 @@ class Game {
         this.order.generateOrder();
         this.customer.generateCustomer();
         this.timer.generateTimer();
+        this.order.generateStrikes();
     }
-
 
     checkForMatch() {
         const check = document.getElementById("check");
@@ -423,6 +424,24 @@ class Order {
         h2.classList.add("order")
         h2.textContent = `${randomOrder}`;
         order.appendChild(h2)
+    }
+
+    generateStrikes() {
+        const strikeArr = ["/", "/", "/"]
+        strikeArr.forEach((strike) => {
+            const div = document.getElementById("strike-container");
+            const span = document.createElement("span");
+            span.textContent = strike;
+            span.classList.add("strikes");
+            div.appendChild(span)
+        })
+    }
+
+    removeStrikes() {
+        const strikes = document.querySelectorAll("#strike-container span");
+        strikes.forEach((strike) => {
+            strike.remove();
+        })
     }
 
     // checkRecipeMatch() {

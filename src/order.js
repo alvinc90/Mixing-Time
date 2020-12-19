@@ -36,47 +36,47 @@ class Order {
         order.appendChild(h2)
     }
 
-    checkRecipeMatch() {
-        let cocktailId;
+    // checkRecipeMatch() {
+    //     let cocktailId;
  
-        const findOrder = document.getElementsByClassName("order")[0].textContent;
-        this.orderArr.forEach((item, i) => {
-            if (item.cocktail === findOrder) cocktailId = i
-        })
+    //     const findOrder = document.getElementsByClassName("order")[0].textContent;
+    //     this.orderArr.forEach((item, i) => {
+    //         if (item.cocktail === findOrder) cocktailId = i
+    //     })
         
-        const recipeArr = this.orderArr[cocktailId].recipe;
+    //     const recipeArr = this.orderArr[cocktailId].recipe;
 
-        const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
-        const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
-        const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
+    //     const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
+    //     const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
+    //     const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
 
-        const noDupList1 = (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3);
-        const noDupList2 = (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3);
-        const noDupList3 = (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) 
+    //     const noDupList1 = (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3);
+    //     const noDupList2 = (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3);
+    //     const noDupList3 = (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) 
 
-       if ( ( recipeArr.includes(shakerList1) && ( noDupList1 ) ) && 
-            ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
-            ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
+    //    if ( ( recipeArr.includes(shakerList1) && ( noDupList1 ) ) && 
+    //         ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
+    //         ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
 
-            alert("Good Job!");
-            this.correctDrinkRecipe();
-            return true;
-        } else {
-           alert("Wrong Drink!")
-           this.strike();
-           return false;
-       }
-    }
+    //         alert("Good Job!");
+    //         this.correctDrinkRecipe();
+    //         return true;
+    //     } else {
+    //        alert("Wrong Drink!")
+    //        this.strike();
+    //        return false;
+    //    }
+    // }
 
-    correctDrinkRecipe() {
-        this.clearList();
-        this.tips();
-        this.removeOrder();
-        this.generateOrder();
-        this.customer.removeCustomer();
-        this.customer.generateCustomer();
-        this.timer.resetTimer();
-    }
+    // correctDrinkRecipe() {
+    //     this.clearList();
+    //     this.tips();
+    //     this.removeOrder();
+    //     this.generateOrder();
+    //     this.customer.removeCustomer();
+    //     this.customer.generateCustomer();
+    //     this.timer.resetTimer();
+    // }
 
     removeOrder() {
         const h2 = document.querySelector("#order > h2");
@@ -106,33 +106,33 @@ class Order {
         tips.textContent = "0";
     }
 
-    strike() {
-        const strikes = document.getElementsByClassName("strikes");
-        const lastStrike = strikes.length - 1;
-        if (strikes.length === 1) {
-            this.gameOver();
-        } else {
-            strikes[lastStrike].remove();
-        }
-    }
+    // strike() {
+    //     const strikes = document.getElementsByClassName("strikes");
+    //     const lastStrike = strikes.length - 1;
+    //     if (strikes.length === 1) {
+    //         this.gameOver();
+    //     } else {
+    //         strikes[lastStrike].remove();
+    //     }
+    // }
 
-    gameOver() {
-        const tips = document.getElementById("tips");
-        const highscore = document.getElementById("highscore");
-        const closingModal = document.getElementById("closing-modal");
-        const banana = document.getElementsByClassName("left-inner-container")[0];
-        const audio = document.querySelector("audio");
+    // gameOver() {
+    //     const tips = document.getElementById("tips");
+    //     const highscore = document.getElementById("highscore");
+    //     const closingModal = document.getElementById("closing-modal");
+    //     const banana = document.getElementsByClassName("left-inner-container")[0];
+    //     const audio = document.querySelector("audio");
         
-        this.timer.stopTimer();
-        this.timer.resetInitialTimer();
-        closingModal.style.display = "block";
-        banana.style.display = "none";
-        highscore.textContent = tips.textContent
-        audio.pause();
-        audio.currentTime = 0;
-        this.removeOrder();
-        this.customer.removeCustomer();
-    }
+    //     this.timer.stopTimer();
+    //     this.timer.resetInitialTimer();
+    //     closingModal.style.display = "block";
+    //     banana.style.display = "none";
+    //     highscore.textContent = tips.textContent
+    //     audio.pause();
+    //     audio.currentTime = 0;
+    //     this.removeOrder();
+    //     this.customer.removeCustomer();
+    // }
 };
 
 export default Order;

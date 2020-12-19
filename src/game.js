@@ -34,7 +34,7 @@ class Game {
 
     checkForMatch() {
         const check = document.getElementById("check");
-        check.addEventListener("click", () => this.order.checkRecipeMatch());
+        check.addEventListener("click", () => this.timer.checkRecipeMatch());
     }
 
 

@@ -60,6 +60,12 @@ class Game {
         })
     }
 
+    removeYouWin() {
+        const gameOver = document.getElementById("game-over");
+        const youWin = document.querySelectorAll("#game-over h2")[0];
+        gameOver.removeChild(youWin);
+    }
+
 }
 
 export default Game;

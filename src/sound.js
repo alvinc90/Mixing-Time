@@ -19,6 +19,16 @@ class Sound {
     audio.appendChild(source);
     audio.pause();
   }
+
+  right() {
+    const rightSound = document.getElementById("right");
+    rightSound.play();
+  }
+
+  wrong() {
+    const wrongSound = document.getElementById("wrong");
+    wrongSound.play();
+  }
 }
 
 export default Sound;

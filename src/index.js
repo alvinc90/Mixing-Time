@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         game1.reset();
         game1.start();
         audio.play();
+        game1.removeYouWin();
     })
 
     //restart with no music
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         closingModal.style.display = "none";
         game1.reset();
         game1.start();
+        game1.removeYouWin();
     })
 
     // start.addEventListener("mouseenter", () => {

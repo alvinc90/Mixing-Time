@@ -63,7 +63,7 @@
     <div id="closing-modal" class="outer-modal2">
         <div class="inner-modal2">
             <div class="closing-modal-content-container">
-                <h1 class="modal-heading">Game Over..</h1>
+                <h1 id ="game-over" class="modal-heading">Game Over..</h1>
                 <h2 class="modal-instruction">Your earnings $<span id=highscore></span></h2>
                 <div class="button-container2">
                     <button id="button2">Restart with sound</button>
@@ -200,7 +200,12 @@
            
         </div>
     </main>
-
+    <audio id="right">
+        <source src="./audio/right.wav" >
+    </audio>
+    <audio id="wrong">
+        <source src="./audio/wrong.wav" >
+    </audio>
     <footer>
         &#169 2020 Designed and Develop by Alvin Chong
     </footer>

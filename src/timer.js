@@ -2,10 +2,12 @@
 import Customer from './customer';
 import Cocktail from './cocktail';
 import Order from './order';
+import Sound from './sound';
 
 class Timer {
     constructor() {
         // this.order = new Order();
+        this.sound = new Sound();
         this.customer = new Customer();
         this.cocktail = new Cocktail();
         this.time = null;
@@ -24,6 +26,7 @@ class Timer {
         let timeleft = timer.textContent;
         timeleft -= 1;
         if (timeleft <= 0) {
+            this.sound.wrong();
             this.strike();
             // this.afterTimerReachesZero();
         } else {
@@ -84,12 +87,16 @@ class Timer {
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const audio = document.querySelector("audio");
+        const youWin = document.createElement("h2");
+        const gameOver = document.getElementById("game-over");
+        youWin.textContent = "YOU WIN!"
         this.stopTimer();
         this.resetInitialTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         let intHighscore = parseInt(tips.textContent);
         if (intHighscore >= 450) {
+            gameOver.appendChild(youWin)
             highscore.textContent = 500
         } else {
             highscore.textContent = tips.textContent
@@ -153,11 +160,13 @@ class Timer {
             ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
             ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
 
-            alert("Good Job!");
+            // alert("Good Job!");
             this.correctDrinkRecipe();
+            this.sound.right();
             return true;
         } else {
-            alert("Wrong Drink!")
+            // alert("Wrong Drink!")
+            this.sound.wrong();
             this.strike();
             return false;
        }

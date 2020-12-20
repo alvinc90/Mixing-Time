@@ -315,6 +315,12 @@ class Game {
         })
     }
 
+    removeYouWin() {
+        const gameOver = document.getElementById("game-over");
+        const youWin = document.querySelectorAll("#game-over h2")[0];
+        gameOver.removeChild(youWin);
+    }
+
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Game);
@@ -375,6 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
         game1.reset();
         game1.start();
         audio.play();
+        game1.removeYouWin();
     })
 
     //restart with no music
@@ -384,6 +391,7 @@ document.addEventListener("DOMContentLoaded", () => {
         closingModal.style.display = "none";
         game1.reset();
         game1.start();
+        game1.removeYouWin();
     })
 
     // start.addEventListener("mouseenter", () => {
@@ -623,6 +631,16 @@ class Sound {
     audio.appendChild(source);
     audio.pause();
   }
+
+  right() {
+    const rightSound = document.getElementById("right");
+    rightSound.play();
+  }
+
+  wrong() {
+    const wrongSound = document.getElementById("wrong");
+    wrongSound.play();
+  }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sound);
@@ -646,7 +664,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./customer */ "./src/customer.js");
 /* harmony import */ var _cocktail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cocktail */ "./src/cocktail.js");
 /* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./order */ "./src/order.js");
+/* harmony import */ var _sound__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sound */ "./src/sound.js");
 // import Order from './order';
+
 
 
 
@@ -654,6 +674,7 @@ __webpack_require__.r(__webpack_exports__);
 class Timer {
     constructor() {
         // this.order = new Order();
+        this.sound = new _sound__WEBPACK_IMPORTED_MODULE_3__.default();
         this.customer = new _customer__WEBPACK_IMPORTED_MODULE_0__.default();
         this.cocktail = new _cocktail__WEBPACK_IMPORTED_MODULE_1__.default();
         this.time = null;
@@ -672,6 +693,7 @@ class Timer {
         let timeleft = timer.textContent;
         timeleft -= 1;
         if (timeleft <= 0) {
+            this.sound.wrong();
             this.strike();
             // this.afterTimerReachesZero();
         } else {
@@ -732,12 +754,16 @@ class Timer {
         const closingModal = document.getElementById("closing-modal");
         const banana = document.getElementsByClassName("left-inner-container")[0];
         const audio = document.querySelector("audio");
+        const youWin = document.createElement("h2");
+        const gameOver = document.getElementById("game-over");
+        youWin.textContent = "YOU WIN!"
         this.stopTimer();
         this.resetInitialTimer();
         closingModal.style.display = "block";
         banana.style.display = "none";
         let intHighscore = parseInt(tips.textContent);
         if (intHighscore >= 450) {
+            gameOver.appendChild(youWin)
             highscore.textContent = 500
         } else {
             highscore.textContent = tips.textContent
@@ -801,11 +827,13 @@ class Timer {
             ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
             ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
 
-            alert("Good Job!");
+            // alert("Good Job!");
             this.correctDrinkRecipe();
+            this.sound.right();
             return true;
         } else {
-            alert("Wrong Drink!")
+            // alert("Wrong Drink!")
+            this.sound.wrong();
             this.strike();
             return false;
        }

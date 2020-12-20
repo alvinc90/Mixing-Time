@@ -53,10 +53,6 @@ class Cocktail {
         ];
         this.emptyArr = ["none", "none", "none"];
         this.dataIdArr = [];
-        // this.generateIngredients();
-        // this.generateEmptylists();
-        // this.clearShakerList();
-        // this.removeShakerList();
     }
 
     generateIngredients() {

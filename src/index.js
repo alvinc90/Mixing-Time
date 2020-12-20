@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const audio = document.querySelector("audio");
     banana.style.display = "none";
     let game1 = new Game();
-    // let game2 = new Game();
 
     // start with music
     start.addEventListener("click", () => {

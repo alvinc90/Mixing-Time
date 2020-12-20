@@ -22,6 +22,7 @@ Mixing Time is a drink matching game where the player assumes the roll of a bart
 <img src="./images/readme_img/start_modal.png" height="300" >
 
 ### 2.Main Game Layout
+<img src="./images/readme_img/main_game.png" height="300" >
 
 ### 3.Pause Game / Instruction
 <img src="./images/readme_img/pause_instruction.png" height="300" >
@@ -48,3 +49,9 @@ Mixing Time is a drink matching game where the player assumes the roll of a bart
 
 ### Day5: 
    * Final debug/ final image seeding/ do the readme
+   
+   
+## Future Considerations 
+* Leaderboard
+* Difficulty settings 
+* More intricate css and sound effects

@@ -18,9 +18,17 @@ Mixing Time is a drink matching game where the player assumes the roll of a bart
 - [ ] Fired from work aka "Lose the game" if receive 3 strikes.
 
 ## Features 
-### Instruction Modal/Startgame 
+### 1.Instruction Modal/Startgame 
+<img src="./images/readme_img/start_modal.png" height="300" >
 
-<img src="./images/readme_img/start_modal.png" height="450" >
+### 2.Main Game Layout
+<img src="./images/readme_img/main_game.png" height="300" >
+
+### 3.Pause Game / Instruction
+<img src="./images/readme_img/pause_instruction.png" height="300" >
+
+### 4.Game Over Modal 
+<img src="./images/readme_img/game_over.png" height="300" >
 
 ## Implementation Timeline
 ### Day 1: 

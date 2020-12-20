@@ -8,8 +8,6 @@ class Game {
         this.order = new Order();
         this.customer = new Customer();
         this.timer = new Timer();
-        // this.reset();
-        // this.start();
         this.checkForMatch();
         this.openInstructionModal();
         this.closeInstructionModal();

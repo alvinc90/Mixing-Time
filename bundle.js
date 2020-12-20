@@ -263,8 +263,6 @@ class Game {
         this.order = new _order__WEBPACK_IMPORTED_MODULE_2__.default();
         this.customer = new _customer__WEBPACK_IMPORTED_MODULE_1__.default();
         this.timer = new _timer__WEBPACK_IMPORTED_MODULE_3__.default();
-        // this.reset();
-        // this.start();
         this.checkForMatch();
         this.openInstructionModal();
         this.closeInstructionModal();

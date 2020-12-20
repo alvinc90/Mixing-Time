@@ -1,23 +1,41 @@
 class Sound {
   constructor() {
+    this.play();
+    this.pause();
+    this.turnUp();
+    this.turnDown();
   }
 
   play() {
     const audio = document.querySelector("audio");
-    const source = document.createElement("source");
-    source.setAttribute("src", "./audio/Allume-Cockney.mp3");
-    source.setAttribute("type", "audio/mp3");
-    audio.appendChild(source);
-    audio.play();
+    const playButton = document.getElementById("audio-play");
+    playButton.addEventListener("click", () => {
+      audio.play();
+    })
   }
 
-  stop() {
+  pause() {
     const audio = document.querySelector("audio");
-    const source = document.createElement("source");
-    source.setAttribute("src", "./audio/Allume-Cockney.mp3");
-    source.setAttribute("type", "audio/mp3");
-    audio.appendChild(source);
-    audio.pause();
+    const pauseButton = document.getElementById("audio-pause");
+    pauseButton.addEventListener("click", () => {
+      audio.pause();
+    })
+  }
+
+  turnUp() {
+    const audio = document.querySelector("audio");
+    const plusButton = document.getElementById("audio-plus");
+    plusButton.addEventListener("click", () => {
+      audio.volume += 0.1;
+    })
+  }
+
+  turnDown() {
+    const audio = document.querySelector("audio");
+    const minusButton = document.getElementById("audio-minus");
+    minusButton.addEventListener("click", () => {
+      audio.volume -= 0.1;
+    })
   }
 
   right() {
@@ -29,6 +47,8 @@ class Sound {
     const wrongSound = document.getElementById("wrong");
     wrongSound.play();
   }
+  
+
 }
 
 export default Sound;

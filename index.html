@@ -135,9 +135,15 @@
         <nav>
             <ul class="nav-bar">
                 <a href="https://github.com/alvinc90" target="_blank"><img src="./images/links/GitHub.png" alt="GitHub"></a>
-                <audio controls autoplay loop>
-                    <source src="./audio/Allume-Cockney.mp3" type="audio/mp3">
-                </audio>
+                <div>
+                    <audio id="audio1" autoplay loop>
+                        <source src="./audio/Allume-Cockney.mp3" type="audio/mp3">
+                    </audio>
+                    <button id="audio-play">Play</button>
+                    <button id="audio-pause">Pause</button>
+                    <button id="audio-plus">+</button>
+                    <button id="audio-minus">-</button>
+                </div>
                 <a href="https://www.linkedin.com/in/alvin-chong-4b88011a1/" target="_blank"><img src="./images/links/linkedin.png" alt="LinkedIn"></a>
             </ul>
         </nav>
@@ -170,7 +176,7 @@
                 <div class="time-score-container">
                     <div class="timer-container">
                         <span class="timer-text">Timer:</span>
-                        <span id="timer" class="timer">12</span>   <!--<<------------- -->
+                        <span id="timer" class="timer">nan</span>   <!--<<------------- -->
                     </div>
                     <h1 class="score-container">
                         <span class="tips-text">Tips:</span>

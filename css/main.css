@@ -568,4 +568,67 @@ footer {
     padding-top: 60px;
 }
 
+#audio-play:focus,
+#audio-pause:focus,
+#audio-plus:focus,
+#audio-minus:focus {
+    outline: none;
+}
+
+#audio-play {
+    font-size: 24px;
+    width: 85px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: purple;
+    border: none;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+#audio-pause {
+    font-size: 24px;
+    width: 85px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    border: none;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+#audio-plus {
+    font-size: 24px;
+    width: 50px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: purple;
+    border: none;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+#audio-minus {
+    font-size: 24px;
+    width: 50px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    border: none;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+#audio-play:hover,
+#audio-pause:hover,
+#audio-plus:hover,
+#audio-minus:hover {
+    cursor: pointer;
+    top: -2px;
+}
+
 

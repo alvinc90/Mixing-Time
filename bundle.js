@@ -489,48 +489,6 @@ class Order {
         })
     }
 
-    // checkRecipeMatch() {
-    //     let cocktailId;
- 
-    //     const findOrder = document.getElementsByClassName("order")[0].textContent;
-    //     this.orderArr.forEach((item, i) => {
-    //         if (item.cocktail === findOrder) cocktailId = i
-    //     })
-        
-    //     const recipeArr = this.orderArr[cocktailId].recipe;
-
-    //     const shakerList1 = document.querySelectorAll("#shaker-lists img")[0].textContent;
-    //     const shakerList2 = document.querySelectorAll("#shaker-lists img")[1].textContent;
-    //     const shakerList3 = document.querySelectorAll("#shaker-lists img")[2].textContent;
-
-    //     const noDupList1 = (shakerList1 !== shakerList2) && (shakerList1 !== shakerList3);
-    //     const noDupList2 = (shakerList2 !== shakerList1) && (shakerList2 !== shakerList3);
-    //     const noDupList3 = (shakerList3 !== shakerList1) && (shakerList3 !== shakerList2) 
-
-    //    if ( ( recipeArr.includes(shakerList1) && ( noDupList1 ) ) && 
-    //         ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
-    //         ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
-
-    //         alert("Good Job!");
-    //         this.correctDrinkRecipe();
-    //         return true;
-    //     } else {
-    //        alert("Wrong Drink!")
-    //        this.strike();
-    //        return false;
-    //    }
-    // }
-
-    // correctDrinkRecipe() {
-    //     this.clearList();
-    //     this.tips();
-    //     this.removeOrder();
-    //     this.generateOrder();
-    //     this.customer.removeCustomer();
-    //     this.customer.generateCustomer();
-    //     this.timer.resetTimer();
-    // }
-
     removeOrder() {
         const h2 = document.querySelector("#order > h2");
         if(h2) {
@@ -547,49 +505,10 @@ class Order {
         })
     }
 
-    // tips() {
-    //     const tips = document.getElementById("tips");
-    //     let tipsInt = parseInt(tips.textContent);
-    //     if (tipsInt >= 500) {
-
-    //     } else {
-    //         tipsInt += 50;
-    //     }
-    //     tips.textContent = tipsInt;
-    // }
-
     resetTips() {
         const tips = document.getElementById("tips");
         tips.textContent = "0";
     }
-
-    // strike() {
-    //     const strikes = document.getElementsByClassName("strikes");
-    //     const lastStrike = strikes.length - 1;
-    //     if (strikes.length === 1) {
-    //         this.gameOver();
-    //     } else {
-    //         strikes[lastStrike].remove();
-    //     }
-    // }
-
-    // gameOver() {
-    //     const tips = document.getElementById("tips");
-    //     const highscore = document.getElementById("highscore");
-    //     const closingModal = document.getElementById("closing-modal");
-    //     const banana = document.getElementsByClassName("left-inner-container")[0];
-    //     const audio = document.querySelector("audio");
-        
-    //     this.timer.stopTimer();
-    //     this.timer.resetInitialTimer();
-    //     closingModal.style.display = "block";
-    //     banana.style.display = "none";
-    //     highscore.textContent = tips.textContent
-    //     audio.pause();
-    //     audio.currentTime = 0;
-    //     this.removeOrder();
-    //     this.customer.removeCustomer();
-    // }
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
@@ -826,13 +745,10 @@ class Timer {
        if ( ( recipeArr.includes(shakerList1) && ( noDupList1 ) ) && 
             ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
             ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
-
-            // alert("Good Job!");
             this.correctDrinkRecipe();
             this.sound.right();
             return true;
         } else {
-            // alert("Wrong Drink!")
             this.sound.wrong();
             this.strike();
             return false;
@@ -863,6 +779,8 @@ class Timer {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Timer);
+
+sajdfjas;ldfjlasdjfklasjdflk;ajsd;lfjasd;lfjas;dfjas;dfjkas
 
 /***/ })
 

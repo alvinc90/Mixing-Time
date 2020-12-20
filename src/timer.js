@@ -159,13 +159,10 @@ class Timer {
        if ( ( recipeArr.includes(shakerList1) && ( noDupList1 ) ) && 
             ( recipeArr.includes(shakerList2) && ( noDupList2 ) ) && 
             ( recipeArr.includes(shakerList3) && ( noDupList3 ) )  ) {
-
-            // alert("Good Job!");
             this.correctDrinkRecipe();
             this.sound.right();
             return true;
         } else {
-            // alert("Wrong Drink!")
             this.sound.wrong();
             this.strike();
             return false;
@@ -196,3 +193,5 @@ class Timer {
 }
 
 export default Timer;
+
+sajdfjas;ldfjlasdjfklasjdflk;ajsd;lfjasd;lfjas;dfjas;dfjkas

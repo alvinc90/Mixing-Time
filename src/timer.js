@@ -180,8 +180,8 @@ class Timer {
         new Order().generateOrder();
         this.customer.removeCustomer();
         this.customer.generateCustomer();
-        this.tips();
         this.resetTimer();
+        this.tips();
     }
 
 }

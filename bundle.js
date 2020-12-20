@@ -194,12 +194,20 @@ class Customer {
                 url: "images/customer/male_2.png"
             },
             {
+                name: "male_3",
+                url: "images/customer/male_3.png"
+            },
+            {
                 name: "female_1",
                 url: "images/customer/female_1.png"
             },
             {
                 name: "female_2",
                 url: "images/customer/female_2.png"
+            },
+            {
+                name: "female_3",
+                url: "images/customer/female_3.png"
             }
         ]
     }
@@ -308,9 +316,6 @@ class Game {
             this.timer.generateTimer();
         })
     }
-
-
-
 
 }
 
@@ -825,8 +830,8 @@ class Timer {
         new _order__WEBPACK_IMPORTED_MODULE_2__.default().generateOrder();
         this.customer.removeCustomer();
         this.customer.generateCustomer();
-        this.tips();
         this.resetTimer();
+        this.tips();
     }
 
 }

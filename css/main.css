@@ -301,7 +301,7 @@
     position: relative;
 }
 
-#button6 {
+/* #button6 {
     width: 170px;
     height: 50px;
     font-size: 20px;
@@ -313,6 +313,40 @@
     margin-left: 10px;
     position: relative;
     font-family: 'Space Grotesk', sans-serif;
+} */
+
+.button6 {
+    width: 170px;
+    height: 85px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    border: none;
+    font-family: inherit;
+    margin-left: 10px;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: -40px;
+}
+
+.disabled-instruction {
+    width: 170px;
+    height: 85px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: black;
+    background-color: gray;
+    border: none;
+    font-family: inherit;
+    margin-left: 10px;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: -40px;
+}
+
+.disabled-instruction:hover {
+    cursor: not-allowed;
 }
 
 .button-container {
@@ -347,7 +381,7 @@
     margin-left: 10px;
 }
 
-#button:hover, #button3:hover, #button2:hover, #button4:hover, #button5:hover, #button6:hover {
+#button:hover, #button3:hover, #button2:hover, #button4:hover, #button5:hover, .button6:hover {
     cursor: pointer;
     filter: brightness(105%);
     /* background-color: purple;
@@ -362,7 +396,7 @@
 #button2:focus,
 #button4:focus,
 #button5:hover,
-#button6:focus {
+.button6:focus {
     outline: none;
 }
 
@@ -628,5 +662,6 @@ footer {
     cursor: pointer;
     top: -2px;
 }
+
 
 

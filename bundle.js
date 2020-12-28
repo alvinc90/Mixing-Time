@@ -274,6 +274,7 @@ class Game {
         this.order.removeOrder();
         this.customer.removeCustomer();
         this.order.removeStrikes();
+        this.resetInstructionButton();
     }
 
     start() {
@@ -311,7 +312,23 @@ class Game {
             instructionModal.style.display = "none";
             banana.style.display = "block";
             this.timer.generateTimer();
+            this.disabledInstructionButton();
         })
+    }
+
+    disabledInstructionButton() {
+        const openButton = document.getElementById("button6");
+        openButton.setAttribute("disabled", true);
+        openButton.classList.remove("button6");
+        openButton.classList.add("disabled-instruction");
+
+    }
+
+    resetInstructionButton() {
+        const openButton = document.getElementById("button6");
+        openButton.removeAttribute("disabled");
+        openButton.classList.remove("disabled-instruction");
+        openButton.classList.add("button6");
     }
 
     removeYouWin() {
@@ -428,7 +445,7 @@ class Game {
         this.timer.resetTimer();
         this.tips();
     }
-
+    
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Game);

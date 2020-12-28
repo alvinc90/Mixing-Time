@@ -77,9 +77,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
     position: relative;
-    top: 68px;
+    top: -62%;
 }
 
 .remove-1 {
@@ -87,15 +86,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
     font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+    top: -45%;
 }
 
 .cocktail-shaker-container {
     height: 95%;
     margin-top: 1.5%;
     width: 255px;
-    /* background-image: url("../images/bar-ingredients/shaker.png"); */
 }
 
 .ingredient-box {
@@ -378,7 +377,7 @@
 
 #check:hover {
     top: -5px;
-    background-color: ;
+    /* background-color: ; */
 }
 
 #check {
@@ -431,9 +430,8 @@
 }
 
 .shaker-back {
-    position: absolute;
-    right: 32%;
-    top: 34%;
+    position: relative;
+    right: 38%;
 }
 
 .score, .tips {

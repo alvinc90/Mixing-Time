@@ -569,6 +569,14 @@
 
 .recipe-instruction-outer-container {
     margin-top: 20px;
+    /* display: flex;
+    justify-content: center; */
+    /* border: 1px solid limegreen; */
+}
+
+.z100 {
+    width: 90%;
+    /* border: 1px solid hotpink; */
 }
 
 footer {
